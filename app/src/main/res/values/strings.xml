@@ -9,4 +9,17 @@
     <string name="profile_picture"> Profile Picture </string>
     <string name="username"> Username </string>
 
+
+    <!--data exercises-->
+    <string name="name">name</string>
+    <string name="bodypart">bodypart</string>
+    <string name="equipment">equipment</string>
+    <string name="target">target</string>
+    <string name="gif">Gif Exercises</string>
+
+    <string name="name_placeholder">Name: %s</string>
+    <string name="bodypart_placeholder">Bodypart: %s</string>
+    <string name="equipment_placeholder">Equipment: %s</string>
+    <string name="target_placeholder">Target: %s</string>
+
 </resources>

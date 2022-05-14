@@ -15,8 +15,22 @@
         android:layout_height="match_parent"
         tools:context=".exercises.ExercisesFragment">
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_exercises"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
 
-        <TextView
+            tools:listitem="@layout/list_item_exercises" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+
+<!-- <TextView
             android:id="@+id/exercises"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -24,18 +38,5 @@
             app:layout_constraintBottom_toTopOf="@id/recycler_exercises"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_exercises"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintTop_toBottomOf="@id/exercises"
-            tools:layout_editor_absoluteX="0dp"
-            tools:listitem="@layout/list_item_exercises" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</layout>
+            app:layout_constraintTop_toTopOf="parent" />-->
 

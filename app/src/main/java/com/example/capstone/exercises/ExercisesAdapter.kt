@@ -26,7 +26,8 @@ class ExercisesAdapter :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(ListItemExercisesBinding.inflate(LayoutInflater.from(parent.context)))
+        return ViewHolder(ListItemExercisesBinding.inflate(
+            LayoutInflater.from(parent.context)))
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
