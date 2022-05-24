@@ -5,21 +5,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import com.example.capstone.databinding.FragmentHistoryBinding
-import com.example.capstone.databinding.FragmentProfileBinding
-import com.example.capstone.exercises.ExercisesViewModel
-import com.example.capstone.profile.ProfileViewModel
-import com.example.capstone.repository.Repository
+import com.example.capstone.viewmodel.SharedViewModel
 
 class HistoryFragment : Fragment(){
 
 
-    private val viewModel: HistoryViewModel by lazy {
-        ViewModelProvider(
-            this, HistoryViewModel.Factory(this.requireActivity().application)
-        ).get(HistoryViewModel::class.java)
-    }
+//    private val viewModel: SharedViewModel by lazy {
+//        ViewModelProvider(
+//            this, SharedViewModel.Factory(this.requireActivity().application)
+//        ).get(SharedViewModel::class.java)
+//    }
+    private val viewModel: SharedViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

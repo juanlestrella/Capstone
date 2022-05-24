@@ -7,11 +7,15 @@
         <entry key="..\:/Users/juanl/Documents/UdacityNanodegree/Capstone/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/juanl/Documents/UdacityNanodegree/Capstone/app/src/main/res/layout/activity_profile.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/juanl/Documents/UdacityNanodegree/Capstone/app/src/main/res/layout/authentication.xml" value="0.22826086956521738" />
-        <entry key="..\:/Users/juanl/Documents/UdacityNanodegree/Capstone/app/src/main/res/layout/fragment_exercises.xml" value="0.152" />
+        <entry key="..\:/Users/juanl/Documents/UdacityNanodegree/Capstone/app/src/main/res/layout/fragment_exercises.xml" value="0.264" />
         <entry key="..\:/Users/juanl/Documents/UdacityNanodegree/Capstone/app/src/main/res/layout/fragment_history.xml" value="0.22826086956521738" />
-        <entry key="..\:/Users/juanl/Documents/UdacityNanodegree/Capstone/app/src/main/res/layout/fragment_profile.xml" value="0.1" />
+        <entry key="..\:/Users/juanl/Documents/UdacityNanodegree/Capstone/app/src/main/res/layout/fragment_profile.xml" value="0.264" />
+        <entry key="..\:/Users/juanl/Documents/UdacityNanodegree/Capstone/app/src/main/res/layout/fragment_profile_detail.xml" value="0.25" />
+        <entry key="..\:/Users/juanl/Documents/UdacityNanodegree/Capstone/app/src/main/res/layout/fragment_profile_details.xml" value="0.264" />
         <entry key="..\:/Users/juanl/Documents/UdacityNanodegree/Capstone/app/src/main/res/layout/history.xml" value="0.1" />
         <entry key="..\:/Users/juanl/Documents/UdacityNanodegree/Capstone/app/src/main/res/layout/list_item_exercises.xml" value="0.2465483234714004" />
+        <entry key="..\:/Users/juanl/Documents/UdacityNanodegree/Capstone/app/src/main/res/layout/list_item_profile.xml" value="0.11041666666666666" />
+        <entry key="..\:/Users/juanl/Documents/UdacityNanodegree/Capstone/app/src/main/res/layout/list_item_profile_details.xml" value="0.176" />
         <entry key="..\:/Users/juanl/Documents/UdacityNanodegree/Capstone/app/src/main/res/layout/network_security_config.xml" value="0.1" />
         <entry key="..\:/Users/juanl/Documents/UdacityNanodegree/Capstone/app/src/main/res/menu/main_menu.xml" value="0.25" />
         <entry key="..\:/Users/juanl/Documents/UdacityNanodegree/Capstone/app/src/main/res/xml/network_security_config.xml" value="0.1" />

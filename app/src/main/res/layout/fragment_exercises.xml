@@ -7,7 +7,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.capstone.exercises.ExercisesViewModel" />
+            type="com.example.capstone.viewmodel.SharedViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -20,12 +20,40 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
             tools:listitem="@layout/list_item_exercises" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/AddFAB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="80dp"
+            android:layout_marginBottom="24dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ClearFAB"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:fabSize="mini"
+            app:srcCompat="@android:drawable/ic_input_add" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/ClearFAB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="104dp"
+            android:layout_marginBottom="24dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:fabSize="mini"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

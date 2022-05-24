@@ -16,11 +16,16 @@ class Repository(private val database: ExercisesDatabase) {
     val exercisesList: LiveData<List<ExercisesData>> =
         database.exercisesDao.getExerises()
 
+    /**
+     * Used in the SharedViewModel to refresh the data
+     */
     suspend fun refreshData(){
         withContext(Dispatchers.IO){
             val newListExercises = ExercisesApi.retrofitService.getExercises(Constants.RAPID_HOST, Constants.KEY)
             newListExercises.forEach{
-                newExercise -> database.exercisesDao.insertExercises(newExercise)
+                newExercise ->
+                //Log.i("Repository", newExercise.toString())
+                database.exercisesDao.insertExercises(newExercise)
             }
         }
     }

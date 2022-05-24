@@ -22,6 +22,9 @@ data class ExercisesData(
     var name : String,
 
     @ColumnInfo(name = "target")
-    var target: String
+    var target: String,
+
+    @ColumnInfo(name = "isChecked")
+    var isChecked : Boolean = false
 
 )

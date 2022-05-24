@@ -22,4 +22,12 @@
     <string name="equipment_placeholder">Equipment: %s</string>
     <string name="target_placeholder">Target: %s</string>
 
+    <string name="plus_sign">Add template</string>
+
+    <!--Fragment Profile Details-->
+    <string name="template_name">Template Name: </string>
+    <string name="input_name_here">Input Name Here</string>
+    <string name="add_exercises">Add Exercises</string>
+    <string name="done">DONE</string>
+
 </resources>

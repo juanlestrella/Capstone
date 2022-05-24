@@ -7,7 +7,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.capstone.profile.ProfileViewModel" />
+            type="com.example.capstone.viewmodel.SharedViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -20,9 +20,32 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/profile"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/recyler_profile"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyler_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@id/profile"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:listitem="@layout/list_item_profile"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:src="@drawable/ic_plus_sign"
+            android:contentDescription="@string/plus_sign"
+            android:layout_margin="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>

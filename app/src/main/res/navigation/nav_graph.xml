@@ -20,33 +20,37 @@
             android:id="@+id/action_profileFragment_to_exercisesFragment"
             app:destination="@id/exercisesFragment" />
         <action
-            android:id="@+id/action_profileFragment_to_historyFragment"
-            app:destination="@id/historyFragment" />
-        <action
             android:id="@+id/action_profileFragment_to_authFragment"
             app:destination="@id/authFragment"
             app:popUpTo="@id/authFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_profileDetailFragment"
+            app:destination="@id/profileDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/exercisesFragment"
         android:name="com.example.capstone.exercises.ExercisesFragment"
         android:label="ExercisesFragment" >
         <action
-            android:id="@+id/action_exercisesFragment_to_historyFragment"
-            app:destination="@id/historyFragment" />
-        <action
             android:id="@+id/action_exercisesFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_exercisesFragment_to_profileDetailFragment"
+            app:destination="@id/profileDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/historyFragment"
         android:name="com.example.capstone.history.HistoryFragment"
-        android:label="HistoryFragment" >
+        android:label="HistoryFragment" />
+    <fragment
+        android:id="@+id/profileDetailFragment"
+        android:name="com.example.capstone.profiledetails.ProfileDetailsFragment"
+        android:label="ProfileDetailFragment" >
         <action
-            android:id="@+id/action_historyFragment_to_exercisesFragment"
-            app:destination="@id/exercisesFragment" />
-        <action
-            android:id="@+id/action_historyFragment_to_profileFragment"
+            android:id="@+id/action_profileDetailFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_profileDetailFragment_to_exercisesFragment"
+            app:destination="@id/exercisesFragment" />
     </fragment>
 </navigation>

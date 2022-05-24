@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
@@ -14,15 +15,17 @@ import androidx.navigation.fragment.navArgs
 import com.example.capstone.R
 import com.example.capstone.databinding.FragmentProfileBinding
 import com.example.capstone.repository.Repository
+import com.example.capstone.viewmodel.SharedViewModel
 import com.google.firebase.auth.FirebaseAuth
 
 class ProfileFragment : Fragment() {
 
-    private val viewModel: ProfileViewModel by lazy {
-        ViewModelProvider(
-            this, ProfileViewModel.Factory(this.requireActivity().application)
-        ).get(ProfileViewModel::class.java)
-    }
+//    private val viewModel: SharedViewModel by lazy {
+//        ViewModelProvider(
+//            this, SharedViewModel.Factory(this.requireActivity().application)
+//        ).get(SharedViewModel::class.java)
+//    }
+    private val viewModel: SharedViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,47 +40,27 @@ class ProfileFragment : Fragment() {
 
         val binding = FragmentProfileBinding.inflate(inflater)
 
+        val navController = findNavController()
+
         binding.lifecycleOwner = this
 
         binding.viewModel = viewModel
 
+        binding.fab.setOnClickListener {
+            //Toast.makeText(this.context, "FAB CLICKED", Toast.LENGTH_LONG).show()
+            navController.navigate(R.id.action_profileFragment_to_profileDetailFragment)
+        }
+
         return binding.root
     }
-
-//    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-//        inflater.inflate(R.menu.main_menu, menu)
-//        super.onCreateOptionsMenu(menu, inflater)
-//    }
-//
-//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-//        val navController = findNavController()
-//
-//        return when(item.itemId){
-//            R.id.logout_item -> {
-//                FirebaseAuth.getInstance().signOut()
-//                navController.popBackStack() // TODO: navigate back to authFragment
-//                //Toast.makeText(activity, "clicked", Toast.LENGTH_SHORT).show()
-//                return true
-//            }
-//            R.id.profileFragment -> {
-//                Log.i("Profile", "Clicked on Profile")
-//                Toast.makeText(requireContext(), "click on profile", Toast.LENGTH_LONG).show()
-//                return true
-//            }
-//
-//            R.id.exercises_item -> {
-//                Toast.makeText(requireContext(), "click on exercises", Toast.LENGTH_LONG).show()
-//                //navController.navigate(R.id.action_profileFragment_to_exercisesFragment)
-//                return true
-//            }
-//
-//            R.id.history_item -> {
-//                Toast.makeText(requireContext(), "click on history", Toast.LENGTH_LONG).show()
-//                return true
-//            }
-//            else -> super.onOptionsItemSelected(item)
-//        }
-//
-//        //return super.onOptionsItemSelected(item)
-//    }
+    /*
+    TODO:
+    1) create a FAB to add new template
+    2) template: name, list of added exercises from recyclers view, start button, completed button
+        (add later -> number of repetition and weights, delete or add more exercises)
+    3) Users should be able to click on the FAB and will redirect to "Exercise fragment".
+    4) In Exercise Fragment, users should be able to scroll down and click the "plus button" to add
+        an exercise to the template.
+    5) *** Is it possible to only show the "plus button" when coming from the Profile Fragment? ***
+     */
 }
