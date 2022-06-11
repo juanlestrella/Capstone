@@ -5,24 +5,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.capstone.R
-import com.example.capstone.database.getDataBase
 import com.example.capstone.databinding.FragmentExercisesBinding
-import com.example.capstone.databinding.ListItemExercisesBindingImpl
-import com.example.capstone.repository.Repository
 import com.example.capstone.viewmodel.SharedViewModel
 
 class ExercisesFragment : Fragment() {
 
-//    private val viewModel: SharedViewModel by lazy {
+    //    private val viewModel: SharedViewModel by lazy {
 //        ViewModelProvider(
 //            this, SharedViewModel.Factory(this.requireActivity().application)
 //        ).get(SharedViewModel::class.java)
@@ -52,17 +46,22 @@ class ExercisesFragment : Fragment() {
 
         binding.recyclerExercises.adapter = exercisesAdapter
 
-        binding.recyclerExercises.addItemDecoration(DividerItemDecoration(context,LinearLayoutManager.VERTICAL))
+        binding.recyclerExercises.addItemDecoration(
+            DividerItemDecoration(
+                context,
+                LinearLayoutManager.VERTICAL
+            )
+        )
 
-        viewModel.exercisesList.observe(viewLifecycleOwner){
-            listData -> (binding.recyclerExercises.adapter as ExercisesAdapter).submitList(listData)
+        viewModel.exercisesList.observe(viewLifecycleOwner) { listData ->
+            (binding.recyclerExercises.adapter as ExercisesAdapter).submitList(listData)
         }
 
         /**
          * Add all the checked exercises in the SharedViewModel
          * Navigate back to ProfileDetailFragment
          */
-        binding.AddFAB.setOnClickListener{
+        binding.AddFAB.setOnClickListener {
             // get the names of all the checked item in the recyclerview
             // Toast.makeText(context, exercisesAdapter.returnCheckBoxList().toString(), Toast.LENGTH_LONG).show()
             // Toast.makeText(context, viewModel.checkedExercisesList.value.toString(), Toast.LENGTH_LONG).show()

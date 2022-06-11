@@ -11,7 +11,12 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.capstone.R
 import com.example.capstone.databinding.FragmentProfileDetailsBindingImpl
+import com.example.capstone.entities.TemplatesData
+import com.example.capstone.profile.ProfileFragment
 import com.example.capstone.viewmodel.SharedViewModel
+import okhttp3.internal.notify
+import okhttp3.internal.notifyAll
+import okhttp3.internal.wait
 
 class ProfileDetailsFragment : Fragment() {
 
@@ -22,6 +27,7 @@ class ProfileDetailsFragment : Fragment() {
 //    }
 
     private val viewModel: SharedViewModel by activityViewModels()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -71,8 +77,15 @@ class ProfileDetailsFragment : Fragment() {
          * passed.
          */
         binding.doneButtonId.setOnClickListener {
-            //viewModel.clearFinalExercisesList()
+            val title = binding.templateNameEditviewId.text.toString()
+            val newTemplatesData: TemplatesData = TemplatesData(title, finalList)
+            viewModel.insertNewTemplate(newTemplatesData)
+
+            val profileFragment = ProfileFragment()
+
             navController.navigate(R.id.action_profileDetailFragment_to_profileFragment)
+
+            viewModel.clearFinalExercisesList()
         }
 
         return binding.root

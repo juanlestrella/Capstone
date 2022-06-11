@@ -25,6 +25,7 @@ class ProfileFragment : Fragment() {
 //            this, SharedViewModel.Factory(this.requireActivity().application)
 //        ).get(SharedViewModel::class.java)
 //    }
+
     private val viewModel: SharedViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,27 +41,26 @@ class ProfileFragment : Fragment() {
 
         val binding = FragmentProfileBinding.inflate(inflater)
 
+        val profileAdapter = ProfileAdapter()
+
         val navController = findNavController()
 
-        binding.lifecycleOwner = this
+        binding.lifecycleOwner = viewLifecycleOwner
 
-        binding.viewModel = viewModel
+        binding.recyclerProfile.adapter = profileAdapter
 
         binding.fab.setOnClickListener {
             //Toast.makeText(this.context, "FAB CLICKED", Toast.LENGTH_LONG).show()
             navController.navigate(R.id.action_profileFragment_to_profileDetailFragment)
         }
 
+//        (binding.recyclerProfile.adapter as ProfileAdapter)
+//            .notifyDataSetChanged()
+
+        (binding.recyclerProfile.adapter as ProfileAdapter)
+            .submitList(ArrayList(viewModel.templates))
+
         return binding.root
     }
-    /*
-    TODO:
-    1) create a FAB to add new template
-    2) template: name, list of added exercises from recyclers view, start button, completed button
-        (add later -> number of repetition and weights, delete or add more exercises)
-    3) Users should be able to click on the FAB and will redirect to "Exercise fragment".
-    4) In Exercise Fragment, users should be able to scroll down and click the "plus button" to add
-        an exercise to the template.
-    5) *** Is it possible to only show the "plus button" when coming from the Profile Fragment? ***
-     */
+
 }

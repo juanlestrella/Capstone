@@ -3,8 +3,10 @@ package com.example.capstone.viewmodel
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.*
-import com.example.capstone.database.getDataBase
+import com.example.capstone.database.getExercisesDataBase
+import com.example.capstone.database.getTemplatesDatabase
 import com.example.capstone.entities.ExercisesData
+import com.example.capstone.entities.TemplatesData
 import com.example.capstone.repository.Repository
 import kotlinx.coroutines.launch
 import java.lang.Exception
@@ -24,11 +26,25 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
     val checkedExercisesList : LiveData<List<ExercisesData>>
         get() = _checkedExercisesList
 
-    private val database = getDataBase(application)
-    private val repository = Repository(database)
-    val exercisesList = repository.exercisesList
+    private val exercisesDatabase = getExercisesDataBase(application)
+    private val templatesDatabase = getTemplatesDatabase(application)
+    private val repository = Repository(exercisesDatabase, templatesDatabase)
 
+    val exercisesList = repository.exercisesList
+    val templates = repository.templatesList
     private val finalExercisesList = mutableListOf<ExercisesData>()
+
+    // mutableListOf(TemplatesData("title", mutableListOf("ex1", "ex2")))
+
+    // 1) Change finalExercisesList to be a Data class
+    // -> TemplatesData(title, mutableListOf<String>())
+    // 2) problem: how to get the title from user
+    // 3) Create a fun() to add a new templates (insertNewTemplates)
+
+    fun insertNewTemplate(newTemplate: TemplatesData){
+        // TODO: Do I need to check anything before adding the new template?
+        repository.insertNewTemplate(newTemplate)
+    }
 
     fun clearFinalExercisesList(){
         finalExercisesList.clear()
@@ -76,7 +92,7 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
             try{
                 repository.refreshData()
                 _status.postValue("Connected")
-                Log.i("ExercisesViewModel", repository.exercisesList.value?.get(0).toString())
+                Log.i("ExercisesViewModel",status.value.toString())
             }catch (e: Exception){
                 _status.postValue("Failure: " + e.message)
             }

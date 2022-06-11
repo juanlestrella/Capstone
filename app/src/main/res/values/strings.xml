@@ -30,4 +30,7 @@
     <string name="add_exercises">Add Exercises</string>
     <string name="done">DONE</string>
 
+    <!--Fragment Profile-->
+    <string name="title_template">Title: %s</string>
+
 </resources>

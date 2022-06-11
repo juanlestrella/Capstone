@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.capstone.entities.ExercisesData
+import com.example.capstone.entities.TemplatesData
 
 @Dao
 interface ExercisesDao {
@@ -21,14 +22,14 @@ abstract class ExercisesDatabase : RoomDatabase(){
 }
 
 private lateinit var INSTANCE:ExercisesDatabase
-fun getDataBase(context: Context):ExercisesDatabase {
+fun getExercisesDataBase(context: Context):ExercisesDatabase {
     synchronized(ExercisesDatabase::class.java) {
         if (!::INSTANCE.isInitialized) {
             INSTANCE = Room.databaseBuilder(
                 context,
                 ExercisesDatabase::class.java,
                 "exerises_database"
-            ).build()
+            ).allowMainThreadQueries().build()
         }
         return INSTANCE
     }

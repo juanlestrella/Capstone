@@ -1,27 +1,17 @@
 package com.example.capstone.exercises
 
-import android.util.SparseBooleanArray
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.CompoundButton
-import android.widget.Toast
-import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.example.capstone.R
 import com.example.capstone.databinding.ListItemExercisesBinding
 import com.example.capstone.entities.ExercisesData
-import com.example.capstone.viewmodel.SharedViewModel
-import kotlin.coroutines.coroutineContext
 
 class ExercisesAdapter() :
     ListAdapter<ExercisesData, ExercisesAdapter.ViewHolder>(ExercisesDiffCallback()) {
 
-    private var checkBoxList = mutableListOf<ExercisesData>()
+    private val checkBoxList = mutableListOf<ExercisesData>()
 
     /**
      * RETURN: List of ExercisesData with checked box
