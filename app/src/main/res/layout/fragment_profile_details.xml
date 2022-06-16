@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.example.capstone.viewmodel.SharedViewModel" />
@@ -30,14 +31,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="640dp"
+            android:autofillHints="text"
             android:hint="@string/input_name_here"
+            android:inputType="text"
             android:paddingTop="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.2"
             app:layout_constraintStart_toEndOf="@id/template_name_textview_id"
-            app:layout_constraintTop_toTopOf="parent"
-            android:inputType="text"
-            android:autofillHints="text" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_profile_details"
@@ -45,11 +46,11 @@
             android:layout_height="wrap_content"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toTopOf="@id/add_exercises_button_id"
-            app:layout_constraintTop_toBottomOf="@id/template_name_editview_id"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/template_name_editview_id"
             app:layout_constraintVertical_bias="0.0"
-            tools:listitem="@layout/list_item_profile_details"/>
+            tools:listitem="@layout/list_item_profile_details" />
 
         <Button
             android:id="@+id/add_exercises_button_id"

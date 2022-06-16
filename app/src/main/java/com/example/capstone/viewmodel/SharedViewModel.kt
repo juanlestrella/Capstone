@@ -19,11 +19,11 @@ import java.lang.Exception
 class SharedViewModel(application: Application) : AndroidViewModel(application) {
 
     private val _status = MutableLiveData<String>()
-    val status : LiveData<String>
+    val status: LiveData<String>
         get() = _status
 
     private val _checkedExercisesList = MutableLiveData<List<ExercisesData>>()
-    val checkedExercisesList : LiveData<List<ExercisesData>>
+    val checkedExercisesList: LiveData<List<ExercisesData>>
         get() = _checkedExercisesList
 
     private val exercisesDatabase = getExercisesDataBase(application)
@@ -32,21 +32,20 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
 
     val exercisesList = repository.exercisesList
     val templates = repository.templatesList
+
     private val finalExercisesList = mutableListOf<ExercisesData>()
 
-    // mutableListOf(TemplatesData("title", mutableListOf("ex1", "ex2")))
-
-    // 1) Change finalExercisesList to be a Data class
-    // -> TemplatesData(title, mutableListOf<String>())
-    // 2) problem: how to get the title from user
-    // 3) Create a fun() to add a new templates (insertNewTemplates)
-
-    fun insertNewTemplate(newTemplate: TemplatesData){
-        // TODO: Do I need to check anything before adding the new template?
+    /**
+     * Insert new template in TemplatesRoom
+     */
+    fun insertNewTemplate(newTemplate: TemplatesData) {
         repository.insertNewTemplate(newTemplate)
     }
 
-    fun clearFinalExercisesList(){
+    /**
+     * Remove all elements in finalExercisesList
+     */
+    fun clearFinalExercisesList() {
         finalExercisesList.clear()
     }
 
@@ -57,7 +56,7 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
      */
     fun returnFinalExercisesList(): MutableList<ExercisesData> {
         _checkedExercisesList.value?.forEach {
-            if(it !in finalExercisesList){
+            if (it !in finalExercisesList) {
                 finalExercisesList.add(it)
             }
         }
@@ -68,7 +67,7 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
      * Update the value of checkedExercisesList with the value
      * from ExercisesAdapter.returnCheckBoxList()
      */
-    fun setCheckedExercisesList(dataList: MutableList<ExercisesData>){
+    fun setCheckedExercisesList(dataList: MutableList<ExercisesData>) {
         _checkedExercisesList.postValue(dataList)
     }
 
@@ -76,9 +75,9 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
      * Change the value of all
      * ExercisesData.isChecked to false
      */
-    fun checkBoxAllFalse(){
+    fun checkBoxAllFalse() {
         exercisesList.value?.forEach { exercise ->
-            if(exercise.isChecked){
+            if (exercise.isChecked) {
                 exercise.isChecked = false
             }
         }
@@ -89,23 +88,13 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
          * Refresh the Data and make sure API is connected
          */
         viewModelScope.launch {
-            try{
+            try {
                 repository.refreshData()
                 _status.postValue("Connected")
-                Log.i("ExercisesViewModel",status.value.toString())
-            }catch (e: Exception){
+                Log.i("ExercisesViewModel", status.value.toString())
+            } catch (e: Exception) {
                 _status.postValue("Failure: " + e.message)
             }
         }
     }
-
-//    class Factory(val application: Application) : ViewModelProvider.Factory {
-//        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-//            if (modelClass.isAssignableFrom(SharedViewModel::class.java)) {
-//                @Suppress("UNCHECKED_CAST")
-//                return SharedViewModel(application) as T
-//            }
-//            throw IllegalArgumentException("Unable to construct ViewModel")
-//        }
-//    }
 }

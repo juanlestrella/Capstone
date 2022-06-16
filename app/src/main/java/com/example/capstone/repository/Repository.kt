@@ -2,7 +2,6 @@ package com.example.capstone.repository
 
 import android.util.Log
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import com.example.capstone.Constants
 import com.example.capstone.database.ExercisesDatabase
 import com.example.capstone.database.TemplatesDatabase
@@ -15,13 +14,17 @@ import retrofit2.Response
 
 class Repository(
     private val exercisesDatabase: ExercisesDatabase,
-    private val templatesDatabase: TemplatesDatabase) {
+    private val templatesDatabase: TemplatesDatabase
+) {
 
     val exercisesList: LiveData<List<ExercisesData>> =
-        exercisesDatabase.exercisesDao.getExerises()
+        exercisesDatabase.exercisesDao.getExercises()
 
-    val templatesList: List<TemplatesData> = templatesDatabase.templatesDao.getTemplates()
+    val templatesList: LiveData<List<TemplatesData>> = templatesDatabase.templatesDao.getTemplates()
 
+    /**
+     * Insert new TemplatesData to Template's Room
+     */
     fun insertNewTemplate(newTemplates: TemplatesData) {
         templatesDatabase.templatesDao.insertTemplates(newTemplates)
     }
@@ -29,11 +32,11 @@ class Repository(
     /**
      * Used in the SharedViewModel to refresh the data
      */
-    suspend fun refreshData(){
-        withContext(Dispatchers.IO){
-            val newListExercises = ExercisesApi.retrofitService.getExercises(Constants.RAPID_HOST, Constants.KEY)
-            newListExercises.forEach{
-                newExercise ->
+    suspend fun refreshData() {
+        withContext(Dispatchers.IO) {
+            val newListExercises =
+                ExercisesApi.retrofitService.getExercises(Constants.RAPID_HOST, Constants.KEY)
+            newListExercises.forEach { newExercise ->
                 //Log.i("Repository", newExercise.toString())
                 exercisesDatabase.exercisesDao.insertExercises(newExercise)
             }

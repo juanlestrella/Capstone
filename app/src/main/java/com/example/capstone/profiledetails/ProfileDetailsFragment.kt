@@ -20,12 +20,6 @@ import okhttp3.internal.wait
 
 class ProfileDetailsFragment : Fragment() {
 
-//    private val viewModelFactory by lazy {
-//        ViewModelProvider(
-//            this, SharedViewModel.Factory(this.requireActivity().application)
-//        ).get(SharedViewModel::class.java)
-//    }
-
     private val viewModel: SharedViewModel by activityViewModels()
 
 
@@ -52,9 +46,6 @@ class ProfileDetailsFragment : Fragment() {
 
         binding.recyclerProfileDetails.adapter = profileDetailsAdapter
 
-        // Empty = null, otherwise print all checked exercises list
-        // Toast.makeText(context, viewModel.checkedExercisesList.value.toString(), Toast.LENGTH_LONG).show()
-
         /**
          * List of all checked boxes from the viewModel
          * then submit to ProfileDetailsAdapter
@@ -63,25 +54,21 @@ class ProfileDetailsFragment : Fragment() {
         (binding.recyclerProfileDetails.adapter as ProfileDetailsAdapter).submitList(finalList)
 
         /**
-         * When users click add exercises, navigate to the ExercisesFragment
-         * Note: Is it possible to make the boxes visible only when the user
-         * comes from the ProfileDetailsFragments?
+         * When user clicks ADD EXERCISES, navigate to the ExercisesFragment
          */
         binding.addExercisesButtonId.setOnClickListener {
             navController.navigate(R.id.action_profileDetailFragment_to_exercisesFragment)
         }
 
         /**
-         * After the list of exercises are added, the DONE button is pushed
-         * and navigate back to ProfileFragment with Template Name and Exercises
-         * passed.
+         * After the list of exercises are added, click the DONE button
+         * and navigate back to ProfileFragment with
+         * Template's Title and list of Exercises
          */
         binding.doneButtonId.setOnClickListener {
             val title = binding.templateNameEditviewId.text.toString()
             val newTemplatesData: TemplatesData = TemplatesData(title, finalList)
             viewModel.insertNewTemplate(newTemplatesData)
-
-            val profileFragment = ProfileFragment()
 
             navController.navigate(R.id.action_profileDetailFragment_to_profileFragment)
 

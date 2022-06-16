@@ -11,8 +11,8 @@ import com.example.capstone.entities.ExercisesData
 class ProfileInnerAdapter() :
     ListAdapter<ExercisesData, ProfileInnerAdapter.ViewHolder>(ProfileInnerDiffCallback()) {
 
-    class ViewHolder(private var binding: ListItemProfileInnerBinding)
-        : RecyclerView.ViewHolder(binding.root){
+    class ViewHolder(private var binding: ListItemProfileInnerBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(item: ExercisesData?) {
             binding.exercises = item
         }
@@ -20,9 +20,11 @@ class ProfileInnerAdapter() :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(ListItemProfileInnerBinding.inflate(
-            LayoutInflater.from(parent.context)
-        ))
+        return ViewHolder(
+            ListItemProfileInnerBinding.inflate(
+                LayoutInflater.from(parent.context)
+            )
+        )
     }
 
     override fun onBindViewHolder(holder: ProfileInnerAdapter.ViewHolder, position: Int) {
@@ -30,7 +32,7 @@ class ProfileInnerAdapter() :
     }
 }
 
-class ProfileInnerDiffCallback : DiffUtil.ItemCallback<ExercisesData>(){
+class ProfileInnerDiffCallback : DiffUtil.ItemCallback<ExercisesData>() {
     override fun areItemsTheSame(oldItem: ExercisesData, newItem: ExercisesData): Boolean {
         return oldItem == newItem
     }

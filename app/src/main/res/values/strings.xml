@@ -24,6 +24,7 @@
 
     <string name="plus_sign">Add template</string>
 
+
     <!--Fragment Profile Details-->
     <string name="template_name">Template Name: </string>
     <string name="input_name_here">Input Name Here</string>
@@ -32,5 +33,11 @@
 
     <!--Fragment Profile-->
     <string name="title_template">Title: %s</string>
+
+    <!--Fragment List Item Profile-->
+    <string name="title">Title</string>
+
+    <!--Fragment List Item Profile Details-->
+    <string name="exercises_name">Exercises Name</string>
 
 </resources>

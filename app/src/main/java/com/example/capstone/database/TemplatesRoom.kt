@@ -1,6 +1,7 @@
 package com.example.capstone.database
 
 import android.content.Context
+import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.capstone.Converter
 import com.example.capstone.entities.TemplatesData
@@ -8,8 +9,11 @@ import com.example.capstone.entities.TemplatesData
 @Dao
 interface TemplatesDao {
 
+    /**
+     * Gets a list of LiveData to keep the RecyclerView Updated
+     */
     @Query("SELECT * FROM templates")
-    fun getTemplates(): List<TemplatesData>
+    fun getTemplates(): LiveData<List<TemplatesData>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertTemplates(templatesData: TemplatesData)

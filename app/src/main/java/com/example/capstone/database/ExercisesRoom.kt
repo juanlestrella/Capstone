@@ -9,8 +9,11 @@ import com.example.capstone.entities.TemplatesData
 @Dao
 interface ExercisesDao {
 
+    /**
+     * Gets a list of LiveData to keep the RecyclerView Updated
+     */
     @Query("SELECT * FROM exercises")
-    fun getExerises():LiveData<List<ExercisesData>>
+    fun getExercises():LiveData<List<ExercisesData>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertExercises(exercisesData: ExercisesData)

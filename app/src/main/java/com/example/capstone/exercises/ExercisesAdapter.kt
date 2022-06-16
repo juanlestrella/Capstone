@@ -16,39 +16,41 @@ class ExercisesAdapter() :
     /**
      * RETURN: List of ExercisesData with checked box
      */
-    fun returnCheckBoxList() : MutableList<ExercisesData>{
+    fun returnCheckBoxList(): MutableList<ExercisesData> {
         return checkBoxList
     }
 
-    inner class ViewHolder(private var binding: ListItemExercisesBinding)
-        : RecyclerView.ViewHolder(binding.root){
+    inner class ViewHolder(private var binding: ListItemExercisesBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
         fun bind(data: ExercisesData) {
             binding.exercises = data
 
             binding.checkBox.isChecked = data.isChecked // avoid reusing checked boxes
 
-            /*
-                if current box is checked, then add current data
+            /**
+                If current box is checked, then add current data
                 to mutable list of ExercisesData. Otherwise,
                 the current box is unchecked so then
                 remove the current data from the list.
-             */
-            binding.checkBox.setOnCheckedChangeListener{
-                button, isChecked ->
-                    if(isChecked){
-                        checkBoxList.add(data)
-                    }else{
-                        checkBoxList.remove(data)
-                    }
+             **/
+            binding.checkBox.setOnCheckedChangeListener { button, isChecked ->
+                if (isChecked) {
+                    checkBoxList.add(data)
+                } else {
+                    checkBoxList.remove(data)
+                }
             }
             binding.executePendingBindings()
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(ListItemExercisesBinding.inflate(
-            LayoutInflater.from(parent.context)))
+        return ViewHolder(
+            ListItemExercisesBinding.inflate(
+                LayoutInflater.from(parent.context)
+            )
+        )
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -57,7 +59,7 @@ class ExercisesAdapter() :
 
 }
 
-class ExercisesDiffCallback : DiffUtil.ItemCallback<ExercisesData>(){
+class ExercisesDiffCallback : DiffUtil.ItemCallback<ExercisesData>() {
 
     override fun areItemsTheSame(oldItem: ExercisesData, newItem: ExercisesData): Boolean {
         return oldItem == newItem

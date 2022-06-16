@@ -15,12 +15,7 @@ import com.example.capstone.databinding.FragmentExercisesBinding
 import com.example.capstone.viewmodel.SharedViewModel
 
 class ExercisesFragment : Fragment() {
-
-    //    private val viewModel: SharedViewModel by lazy {
-//        ViewModelProvider(
-//            this, SharedViewModel.Factory(this.requireActivity().application)
-//        ).get(SharedViewModel::class.java)
-//    }
+    /** ViewModel shared by all fragments in the profile activity **/
     private val viewModel: SharedViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,6 +41,7 @@ class ExercisesFragment : Fragment() {
 
         binding.recyclerExercises.adapter = exercisesAdapter
 
+        /** Creates a divider per View Holder **/
         binding.recyclerExercises.addItemDecoration(
             DividerItemDecoration(
                 context,
@@ -53,22 +49,19 @@ class ExercisesFragment : Fragment() {
             )
         )
 
+        /** Observe LiveData of exercisesList
+         * and submit it to the ExercisesAdapter **/
         viewModel.exercisesList.observe(viewLifecycleOwner) { listData ->
             (binding.recyclerExercises.adapter as ExercisesAdapter).submitList(listData)
         }
 
         /**
          * Add all the checked exercises in the SharedViewModel
-         * Navigate back to ProfileDetailFragment
+         * Navigate to ProfileDetailFragment
          */
         binding.AddFAB.setOnClickListener {
-            // get the names of all the checked item in the recyclerview
-            // Toast.makeText(context, exercisesAdapter.returnCheckBoxList().toString(), Toast.LENGTH_LONG).show()
-            // Toast.makeText(context, viewModel.checkedExercisesList.value.toString(), Toast.LENGTH_LONG).show()
-
             viewModel.setCheckedExercisesList(exercisesAdapter.returnCheckBoxList())
-
-            // navigate back to ProfileDetailFragment
+            // Navigate to ProfileDetailFragment
             navController.navigate(R.id.action_exercisesFragment_to_profileDetailFragment)
         }
 

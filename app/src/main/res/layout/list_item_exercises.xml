@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="exercises"
             type="com.example.capstone.entities.ExercisesData" />
@@ -24,7 +25,7 @@
             app:layout_constraintBottom_toTopOf="@id/bodypart_id"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/gif_id"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/bodypart_id"
@@ -42,38 +43,39 @@
 
         <TextView
             android:id="@+id/equipment_id"
+            style="@style/DataText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="@string/equipment"
             android:text="@{@string/equipment_placeholder(exercises.equipment)}"
-            style="@style/DataText"
             app:layout_constrainedWidth="true"
-            app:layout_constraintTop_toBottomOf="@id/bodypart_id"
             app:layout_constraintBottom_toTopOf="@id/target_id"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/gif_id"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintTop_toBottomOf="@id/bodypart_id" />
+
         <TextView
             android:id="@+id/target_id"
+            style="@style/DataText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="@string/target"
             android:text="@{@string/target_placeholder(exercises.target)}"
-            style="@style/DataText"
             app:layout_constrainedWidth="true"
-            app:layout_constraintTop_toBottomOf="@id/equipment_id"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/gif_id"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintTop_toBottomOf="@id/equipment_id" />
 
         <ImageView
             android:id="@+id/gif_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/gif"
-            app:layout_constraintTop_toTopOf="parent"
+            app:gifLoad="@{exercises.gifUrl}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:gifLoad="@{exercises.gifUrl}" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <CheckBox
             android:id="@+id/checkBox"

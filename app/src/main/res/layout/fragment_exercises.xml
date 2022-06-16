@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.example.capstone.viewmodel.SharedViewModel" />
@@ -36,11 +36,12 @@
             android:layout_marginBottom="24dp"
             android:clickable="true"
             android:focusable="true"
+            app:fabSize="mini"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/ClearFAB"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:fabSize="mini"
-            app:srcCompat="@android:drawable/ic_input_add" />
+            app:srcCompat="@android:drawable/ic_input_add"
+            android:contentDescription="@string/add_exercises" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/ClearFAB"
@@ -57,14 +58,4 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
-
-<!-- <TextView
-            android:id="@+id/exercises"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{viewModel.status.toString()}"
-            app:layout_constraintBottom_toTopOf="@id/recycler_exercises"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />-->
 

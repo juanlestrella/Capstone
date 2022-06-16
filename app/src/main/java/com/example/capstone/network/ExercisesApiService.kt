@@ -25,11 +25,11 @@ interface ExercisesApiService {
     suspend fun getExercises(
         @Header("X-RapidAPI-Host") rapidHost: String,
         @Header("X-RapidAPI-Key") rapidKey: String
-    ) : List<ExercisesData>
+    ): List<ExercisesData>
 }
 
 object ExercisesApi {
-    val retrofitService : ExercisesApiService by lazy {
+    val retrofitService: ExercisesApiService by lazy {
         retrofit.create(ExercisesApiService::class.java)
     }
 }

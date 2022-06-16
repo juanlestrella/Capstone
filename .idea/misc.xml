@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/juanl/Documents/UdacityNanodegree/Capstone/app/src/main/res/drawable-anydpi/ic_error_sign.xml" value="0.105" />
+        <entry key="..\:/Users/juanl/Documents/UdacityNanodegree/Capstone/app/src/main/res/drawable-anydpi/ic_load_sign.xml" value="0.105" />
+        <entry key="..\:/Users/juanl/Documents/UdacityNanodegree/Capstone/app/src/main/res/drawable-anydpi/ic_plus_sign.xml" value="0.1115" />
+        <entry key="..\:/Users/juanl/Documents/UdacityNanodegree/Capstone/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.105" />
         <entry key="..\:/Users/juanl/Documents/UdacityNanodegree/Capstone/app/src/main/res/drawable/border.xml" value="0.1" />
         <entry key="..\:/Users/juanl/Documents/UdacityNanodegree/Capstone/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/juanl/Documents/UdacityNanodegree/Capstone/app/src/main/res/layout/activity_profile.xml" value="0.22826086956521738" />
@@ -13,7 +17,7 @@
         <entry key="..\:/Users/juanl/Documents/UdacityNanodegree/Capstone/app/src/main/res/layout/fragment_profile_detail.xml" value="0.25" />
         <entry key="..\:/Users/juanl/Documents/UdacityNanodegree/Capstone/app/src/main/res/layout/fragment_profile_details.xml" value="0.264" />
         <entry key="..\:/Users/juanl/Documents/UdacityNanodegree/Capstone/app/src/main/res/layout/history.xml" value="0.1" />
-        <entry key="..\:/Users/juanl/Documents/UdacityNanodegree/Capstone/app/src/main/res/layout/list_item_exercises.xml" value="0.2465483234714004" />
+        <entry key="..\:/Users/juanl/Documents/UdacityNanodegree/Capstone/app/src/main/res/layout/list_item_exercises.xml" value="0.1" />
         <entry key="..\:/Users/juanl/Documents/UdacityNanodegree/Capstone/app/src/main/res/layout/list_item_profile.xml" value="0.264" />
         <entry key="..\:/Users/juanl/Documents/UdacityNanodegree/Capstone/app/src/main/res/layout/list_item_profile_details.xml" value="0.264" />
         <entry key="..\:/Users/juanl/Documents/UdacityNanodegree/Capstone/app/src/main/res/layout/list_item_profile_inner.xml" value="0.10256410256410256" />

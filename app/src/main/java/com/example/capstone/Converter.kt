@@ -15,7 +15,7 @@ class Converter {
     }
 
     @TypeConverter
-    fun toExerciseData(value: String) : List<ExercisesData> {
+    fun toExerciseData(value: String): List<ExercisesData> {
         val gson = Gson()
         val type = object : TypeToken<List<ExercisesData>>() {}.type
         return gson.fromJson(value, type)

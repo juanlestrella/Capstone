@@ -3,6 +3,7 @@ package com.example.capstone.entities
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+
 @Entity(tableName = "exercises")
 data class ExercisesData(
 
@@ -10,21 +11,21 @@ data class ExercisesData(
     var bodyPart: String,
 
     @ColumnInfo(name = "equipment")
-    var equipment : String,
+    var equipment: String,
 
     @ColumnInfo(name = "gifUrl")
-    var gifUrl : String,
+    var gifUrl: String,
 
     @PrimaryKey(autoGenerate = false)
     var id: String,
 
     @ColumnInfo(name = "name")
-    var name : String,
+    var name: String,
 
     @ColumnInfo(name = "target")
     var target: String,
 
     @ColumnInfo(name = "isChecked")
-    var isChecked : Boolean = false
+    var isChecked: Boolean = false
 
 )
