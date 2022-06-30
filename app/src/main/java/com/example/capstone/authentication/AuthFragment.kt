@@ -55,7 +55,7 @@ class AuthFragment : Fragment() {
         // observe the auth state. If logged in, send user to RemindActivity. Else display error message
         viewModel.authState.observe(viewLifecycleOwner, Observer { authenticationState ->
             when (authenticationState) {
-                AuthViewModel.AuthenticationState.AUTHENTICATED -> navController.navigate(R.id.action_authFragment_to_profileFragment)
+                //AuthViewModel.AuthenticationState.AUTHENTICATED -> navController.navigate(R.id.action_authFragment_to_profileFragment)
                 else -> Log.e(TAG, "Unauthenticated or Illegal Authentication user ($authenticationState)")
             }
         })

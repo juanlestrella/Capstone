@@ -21,14 +21,14 @@ interface TemplatesDao {
 
 @Database(entities = [TemplatesData::class], version = 1)
 @TypeConverters(Converter::class)
-abstract class TemplatesDatabase : RoomDatabase(){
+abstract class TemplatesDatabase : RoomDatabase() {
     abstract val templatesDao: TemplatesDao
 }
 
 private lateinit var INSTANCE: TemplatesDatabase
 fun getTemplatesDatabase(context: Context): TemplatesDatabase {
     synchronized(TemplatesDatabase::class.java) {
-        if(!::INSTANCE.isInitialized){
+        if (!::INSTANCE.isInitialized) {
             INSTANCE = Room.databaseBuilder(
                 context,
                 TemplatesDatabase::class.java,

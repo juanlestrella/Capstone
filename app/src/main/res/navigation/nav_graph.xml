@@ -2,35 +2,30 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/authFragment">
+    app:startDestination="@id/profileFragment">
 
     <fragment
         android:id="@+id/authFragment"
         android:name="com.example.capstone.authentication.AuthFragment"
-        android:label="AuthFragment" >
-        <action
-            android:id="@+id/action_authFragment_to_profileFragment"
-            app:destination="@id/profileFragment" />
-    </fragment>
+        android:label="AuthFragment" />
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.capstone.profile.ProfileFragment"
-        android:label="ProfileFragment" >
+        android:label="ProfileFragment">
         <action
             android:id="@+id/action_profileFragment_to_exercisesFragment"
             app:destination="@id/exercisesFragment" />
         <action
-            android:id="@+id/action_profileFragment_to_authFragment"
-            app:destination="@id/authFragment"
-            app:popUpTo="@id/authFragment" />
-        <action
             android:id="@+id/action_profileFragment_to_profileDetailFragment"
             app:destination="@id/profileDetailFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_historyFragment"
+            app:destination="@id/timerFragment" />
     </fragment>
     <fragment
         android:id="@+id/exercisesFragment"
         android:name="com.example.capstone.exercises.ExercisesFragment"
-        android:label="ExercisesFragment" >
+        android:label="ExercisesFragment">
         <action
             android:id="@+id/action_exercisesFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
@@ -39,13 +34,17 @@
             app:destination="@id/profileDetailFragment" />
     </fragment>
     <fragment
-        android:id="@+id/historyFragment"
-        android:name="com.example.capstone.history.HistoryFragment"
-        android:label="HistoryFragment" />
+        android:id="@+id/timerFragment"
+        android:name="com.example.capstone.time.TimerFragment"
+        android:label="TimerFragment">
+        <action
+            android:id="@+id/action_historyFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
     <fragment
         android:id="@+id/profileDetailFragment"
         android:name="com.example.capstone.profiledetails.ProfileDetailsFragment"
-        android:label="ProfileDetailFragment" >
+        android:label="ProfileDetailFragment">
         <action
             android:id="@+id/action_profileDetailFragment_to_profileFragment"
             app:destination="@id/profileFragment" />

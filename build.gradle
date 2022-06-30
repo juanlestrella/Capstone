@@ -1,6 +1,6 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
-    ext{
+    ext {
         kotlin_version = "1.6.10"
         navigation_version = '2.4.1'
         retrofit2_version = "2.9.0"
@@ -35,8 +35,8 @@ buildscript {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
-ext{
-    minSdkVersion = 19
+ext {
+    minSdkVersion = 21
     targetSdkVersion = 31
     compileSdkVersion = 31
 }

@@ -3,7 +3,7 @@
     <string name="login">Login/Signup</string>
     <string name="profile">Profile</string>
     <string name="exercises">Exercises</string>
-    <string name="history">History</string>
+    <string name="timer">Timer</string>
     <string name="logout">Logout</string>
     <string name="welcome"> WELCOME </string>
     <string name="profile_picture"> Profile Picture </string>
@@ -39,5 +39,14 @@
 
     <!--Fragment List Item Profile Details-->
     <string name="exercises_name">Exercises Name</string>
+
+    <!--Fragment Timer-->
+    <string name="clear">Clear</string>
+    <string name="start">Start</string>
+    <string name="cancel">Cancel</string>
+    <string name="second">Enter Timer In Seconds</string>
+
+    <!--Notifcation-->
+    <string name="notification_description">Timer is done!</string>
 
 </resources>

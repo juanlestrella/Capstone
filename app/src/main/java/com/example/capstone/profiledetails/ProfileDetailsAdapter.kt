@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.capstone.databinding.ListItemProfileDetailsBinding
 import com.example.capstone.entities.ExercisesData
-import com.example.capstone.exercises.ExercisesAdapter
 
 class ProfileDetailsAdapter :
     ListAdapter<ExercisesData, ProfileDetailsAdapter.ViewHolder>(ProfileDetailDiffCallBack()) {

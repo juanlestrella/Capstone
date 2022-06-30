@@ -29,10 +29,10 @@ class ExercisesAdapter() :
             binding.checkBox.isChecked = data.isChecked // avoid reusing checked boxes
 
             /**
-                If current box is checked, then add current data
-                to mutable list of ExercisesData. Otherwise,
-                the current box is unchecked so then
-                remove the current data from the list.
+            If current box is checked, then add current data
+            to mutable list of ExercisesData. Otherwise,
+            the current box is unchecked so then
+            remove the current data from the list.
              **/
             binding.checkBox.setOnCheckedChangeListener { button, isChecked ->
                 if (isChecked) {

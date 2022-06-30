@@ -2,16 +2,12 @@ package com.example.capstone.profile
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.capstone.databinding.ListItemProfileBinding
-import com.example.capstone.entities.ExercisesData
 import com.example.capstone.entities.TemplatesData
-import com.example.capstone.viewmodel.SharedViewModel
 
 class ProfileAdapter() :
     ListAdapter<TemplatesData, ProfileAdapter.ViewHolder>(ProfileDiffCallback()) {

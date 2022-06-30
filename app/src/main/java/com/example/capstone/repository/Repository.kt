@@ -10,7 +10,6 @@ import com.example.capstone.entities.TemplatesData
 import com.example.capstone.network.ExercisesApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import retrofit2.Response
 
 class Repository(
     private val exercisesDatabase: ExercisesDatabase,

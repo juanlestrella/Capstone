@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.capstone.time.TimerViewModel" />
+    </data>
+
+    <androidx.constraintlayout.motion.widget.MotionLayout
+        android:id="@+id/motion_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutDescription="@xml/fragment_timer_scene"
+        tools:context=".time.TimerFragment"
+        tools:showPaths="true">
+
+        <EditText
+            android:id="@+id/second_id"
+            android:layout_width="225dp"
+            android:layout_height="50dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="@string/second"
+            android:inputType="number"
+            android:minHeight="50dp"
+            android:textAlignment="center"
+            android:textColorHint="#00838F"
+            style="@style/DataText"/>
+
+        <TextView
+            android:id="@+id/timer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/timer"
+            style="@style/DataText"/>
+
+        <Button
+            android:id="@+id/start_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="38dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="@string/start" />
+
+        <Button
+            android:id="@+id/clear_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="@string/clear" />
+
+        <Button
+            android:id="@+id/cancel_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cancel" />
+
+        <ProgressBar
+            android:id="@+id/indicator_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </androidx.constraintlayout.motion.widget.MotionLayout>
+</layout>

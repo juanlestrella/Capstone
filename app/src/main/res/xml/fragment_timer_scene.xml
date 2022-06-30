@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetStart="@id/start"
+        motion:constraintSetEnd="@id/end">
+    </Transition>
+
+
+    <!--START CONSTRAINT-->
+    <ConstraintSet android:id="@+id/start">
+        <Constraint android:id="@+id/second_id"
+            android:layout_width="225dp"
+            android:layout_height="50dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            />
+        <Constraint android:id="@+id/timer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toTopOf="@+id/second_id"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            />
+        <Constraint android:id="@+id/start_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBaseline_toBaselineOf="@+id/cancel_id"
+            motion:layout_constraintEnd_toStartOf="@+id/cancel_id"
+            motion:layout_constraintStart_toStartOf="parent"
+            />
+        <Constraint android:id="@+id/clear_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBaseline_toBaselineOf="@+id/cancel_id"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toEndOf="@+id/cancel_id" />
+
+        <Constraint android:id="@+id/cancel_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toBottomOf="@+id/second_id"
+            />
+        <Constraint
+            android:id="@+id/indicator_id"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintBottom_toTopOf="@id/timer"
+            android:alpha="0">
+        </Constraint>
+    </ConstraintSet>
+
+    <!--END CONSTRAINT-->
+    <ConstraintSet android:id="@+id/end">
+        <Constraint android:id="@+id/second_id"
+            android:layout_width="225dp"
+            android:layout_height="50dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            />
+        <Constraint android:id="@+id/timer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toTopOf="@+id/second_id"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            />
+        <Constraint android:id="@+id/start_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBaseline_toBaselineOf="@+id/cancel_id"
+            motion:layout_constraintEnd_toStartOf="@+id/cancel_id"
+            motion:layout_constraintStart_toStartOf="parent"
+            />
+        <Constraint android:id="@+id/clear_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBaseline_toBaselineOf="@+id/cancel_id"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toEndOf="@+id/cancel_id" />
+
+        <Constraint android:id="@+id/cancel_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toBottomOf="@+id/second_id"
+            />
+        <Constraint
+            android:id="@+id/indicator_id"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintBottom_toTopOf="@id/timer"
+            android:alpha="1.0">
+        </Constraint>
+    </ConstraintSet>
+</MotionScene>

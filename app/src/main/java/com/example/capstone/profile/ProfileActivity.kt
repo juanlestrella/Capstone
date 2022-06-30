@@ -8,9 +8,7 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.Navigation.findNavController
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.onNavDestinationSelected
 import com.example.capstone.R
 import com.google.firebase.auth.FirebaseAuth
@@ -32,11 +30,11 @@ class ProfileActivity : AppCompatActivity(){
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_container)
 
-        if (item.itemId == R.id.authFragment) {
-            FirebaseAuth.getInstance().signOut()
-            navController.navigate(R.id.authFragment)
-            return true
-        }
+//        if (item.itemId == R.id.authFragment) {
+//            FirebaseAuth.getInstance().signOut()
+//            navController.navigate(R.id.authFragment)
+//            return true
+//        }
         return item.onNavDestinationSelected(navController) || super.onOptionsItemSelected(item)
     }
 }

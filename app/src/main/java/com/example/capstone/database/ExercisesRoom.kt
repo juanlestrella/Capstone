@@ -13,19 +13,19 @@ interface ExercisesDao {
      * Gets a list of LiveData to keep the RecyclerView Updated
      */
     @Query("SELECT * FROM exercises")
-    fun getExercises():LiveData<List<ExercisesData>>
+    fun getExercises(): LiveData<List<ExercisesData>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertExercises(exercisesData: ExercisesData)
 }
 
 @Database(entities = [ExercisesData::class], version = 1)
-abstract class ExercisesDatabase : RoomDatabase(){
+abstract class ExercisesDatabase : RoomDatabase() {
     abstract val exercisesDao: ExercisesDao
 }
 
-private lateinit var INSTANCE:ExercisesDatabase
-fun getExercisesDataBase(context: Context):ExercisesDatabase {
+private lateinit var INSTANCE: ExercisesDatabase
+fun getExercisesDataBase(context: Context): ExercisesDatabase {
     synchronized(ExercisesDatabase::class.java) {
         if (!::INSTANCE.isInitialized) {
             INSTANCE = Room.databaseBuilder(

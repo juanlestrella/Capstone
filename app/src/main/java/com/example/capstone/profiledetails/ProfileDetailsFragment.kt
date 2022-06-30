@@ -7,16 +7,11 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.capstone.R
 import com.example.capstone.databinding.FragmentProfileDetailsBindingImpl
 import com.example.capstone.entities.TemplatesData
-import com.example.capstone.profile.ProfileFragment
 import com.example.capstone.viewmodel.SharedViewModel
-import okhttp3.internal.notify
-import okhttp3.internal.notifyAll
-import okhttp3.internal.wait
 
 class ProfileDetailsFragment : Fragment() {
 
