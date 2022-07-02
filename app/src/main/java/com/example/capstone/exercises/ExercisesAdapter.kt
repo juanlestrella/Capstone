@@ -11,7 +11,7 @@ import com.example.capstone.entities.ExercisesData
 class ExercisesAdapter() :
     ListAdapter<ExercisesData, ExercisesAdapter.ViewHolder>(ExercisesDiffCallback()) {
 
-    private val checkBoxList = mutableListOf<ExercisesData>()
+    val checkBoxList = mutableListOf<ExercisesData>()
 
     /**
      * RETURN: List of ExercisesData with checked box
@@ -41,6 +41,12 @@ class ExercisesAdapter() :
                     checkBoxList.remove(data)
                 }
             }
+
+            checkBoxList?.forEach {
+                if(data.id == it.id){
+                    binding.checkBox.isChecked = true
+                }
+            }
             binding.executePendingBindings()
         }
     }
@@ -54,6 +60,11 @@ class ExercisesAdapter() :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        checkBoxList?.forEach {
+            if(getItem(position).id == it.id){
+                getItem(position).isChecked = true
+            }
+        }
         return holder.bind(getItem(position))
     }
 

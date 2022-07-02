@@ -1,6 +1,8 @@
 package com.example.capstone.exercises
 
 import android.os.Bundle
+import android.os.Parcelable
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,15 +14,27 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.capstone.R
 import com.example.capstone.databinding.FragmentExercisesBinding
+import com.example.capstone.entities.ExercisesData
 import com.example.capstone.viewmodel.SharedViewModel
+
+const val KEY_CHECKED = "key_exercise_checked_boxes"
 
 class ExercisesFragment : Fragment() {
     /** ViewModel shared by all fragments in the profile activity **/
     private val viewModel: SharedViewModel by activityViewModels()
 
+    private val exercisesAdapter = ExercisesAdapter()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
+        if(savedInstanceState != null){
+            val state = savedInstanceState.getParcelableArrayList<Parcelable>(KEY_CHECKED)
+            state?.forEach {
+                exercisesAdapter.checkBoxList.add(it as ExercisesData)
+            }
+            Log.i("ExercisesFragment", exercisesAdapter.checkBoxList.toString())
+        }
     }
 
     override fun onCreateView(
@@ -32,8 +46,6 @@ class ExercisesFragment : Fragment() {
         val binding = FragmentExercisesBinding.inflate(inflater)
 
         val navController = findNavController()
-
-        val exercisesAdapter = ExercisesAdapter()
 
         binding.lifecycleOwner = viewLifecycleOwner
 
@@ -75,5 +87,11 @@ class ExercisesFragment : Fragment() {
         }
 
         return binding.root
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        val arrLst = exercisesAdapter.returnCheckBoxList() as ArrayList<Parcelable>
+        outState.putParcelableArrayList(KEY_CHECKED, arrLst)
     }
 }
