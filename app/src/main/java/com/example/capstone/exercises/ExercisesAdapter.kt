@@ -36,17 +36,23 @@ class ExercisesAdapter() :
              **/
             binding.checkBox.setOnCheckedChangeListener { button, isChecked ->
                 if (isChecked) {
-                    checkBoxList.add(data)
+                    if(binding.exercises !in checkBoxList){
+                        checkBoxList.add(data)
+                    }
                 } else {
                     checkBoxList.remove(data)
                 }
             }
-
-            checkBoxList?.forEach {
-                if (data.id == it.id) {
-                    binding.checkBox.isChecked = true
-                }
+            if (binding.exercises in checkBoxList){
+                binding.checkBox.isChecked = true
             }
+
+//            checkBoxList?.forEach {
+//                if (data.id == it.id) {
+//                    binding.checkBox.isChecked = true
+//                }
+//                binding.checkBox.isChecked = false
+//            }
             binding.executePendingBindings()
         }
     }
@@ -60,11 +66,9 @@ class ExercisesAdapter() :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        checkBoxList?.forEach {
-            if (getItem(position).id == it.id) {
-                getItem(position).isChecked = true
-            }
-        }
+//        checkBoxList?.forEach {
+//            getItem(position).isChecked = getItem(position).id == it.id
+//        }
         return holder.bind(getItem(position))
     }
 
