@@ -43,7 +43,7 @@ class ExercisesAdapter() :
             }
 
             checkBoxList?.forEach {
-                if(data.id == it.id){
+                if (data.id == it.id) {
                     binding.checkBox.isChecked = true
                 }
             }
@@ -61,7 +61,7 @@ class ExercisesAdapter() :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         checkBoxList?.forEach {
-            if(getItem(position).id == it.id){
+            if (getItem(position).id == it.id) {
                 getItem(position).isChecked = true
             }
         }

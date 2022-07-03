@@ -28,7 +28,7 @@ class ExercisesFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
-        if(savedInstanceState != null){
+        if (savedInstanceState != null) {
             val state = savedInstanceState.getParcelableArrayList<Parcelable>(KEY_CHECKED)
             state?.forEach {
                 exercisesAdapter.checkBoxList.add(it as ExercisesData)
