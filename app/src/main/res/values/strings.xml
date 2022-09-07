@@ -36,6 +36,8 @@
 
     <!--Fragment List Item Profile-->
     <string name="title">Title</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
 
     <!--Fragment List Item Profile Details-->
     <string name="exercises_name">Exercises Name</string>

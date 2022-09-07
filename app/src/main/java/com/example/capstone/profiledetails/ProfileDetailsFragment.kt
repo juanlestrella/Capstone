@@ -12,6 +12,7 @@ import com.example.capstone.R
 import com.example.capstone.databinding.FragmentProfileDetailsBindingImpl
 import com.example.capstone.entities.TemplatesData
 import com.example.capstone.viewmodel.SharedViewModel
+import okhttp3.internal.notifyAll
 
 class ProfileDetailsFragment : Fragment() {
 
@@ -45,7 +46,7 @@ class ProfileDetailsFragment : Fragment() {
          * List of all checked boxes from the viewModel
          * then submit to ProfileDetailsAdapter
          */
-        val finalList = viewModel.returnFinalExercisesList()
+        var finalList = viewModel.returnFinalExercisesList()
         (binding.recyclerProfileDetails.adapter as ProfileDetailsAdapter).submitList(finalList)
 
         /**
@@ -61,13 +62,28 @@ class ProfileDetailsFragment : Fragment() {
          * Template's Title and list of Exercises
          */
         binding.doneButtonId.setOnClickListener {
-            val title = binding.templateNameEditviewId.text.toString()
-            val newTemplatesData: TemplatesData = TemplatesData(title, finalList)
-            viewModel.insertNewTemplate(newTemplatesData)
+            if (binding.templateNameEditviewId.text.isEmpty()){
+                Toast.makeText(context, "Please Enter Title", Toast.LENGTH_LONG).show()
+            }
+            else if(finalList.isEmpty()){
+                Toast.makeText(context, "Please Add Exercises", Toast.LENGTH_LONG).show()
+            }
+            else{
+                val title = binding.templateNameEditviewId.text.toString()
+                val newTemplatesData: TemplatesData = TemplatesData(title, finalList)
+                viewModel.insertNewTemplate(newTemplatesData)
 
-            navController.navigate(R.id.action_profileDetailFragment_to_profileFragment)
+                //delete previous list
+                //need to do more with recycler view
+//                viewModel.clearFinalExercisesList()
+//                finalList = viewModel.returnFinalExercisesList()
+//                (binding.recyclerProfileDetails.adapter as ProfileDetailsAdapter).submitList(finalList)
 
-            viewModel.clearFinalExercisesList()
+
+                navController.navigate(R.id.action_profileDetailFragment_to_profileFragment)
+
+                viewModel.clearFinalExercisesList()
+            }
         }
 
         return binding.root

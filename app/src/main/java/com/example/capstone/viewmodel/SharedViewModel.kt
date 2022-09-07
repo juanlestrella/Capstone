@@ -3,6 +3,7 @@ package com.example.capstone.viewmodel
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.*
+import androidx.room.Delete
 import com.example.capstone.database.getExercisesDataBase
 import com.example.capstone.database.getTemplatesDatabase
 import com.example.capstone.entities.ExercisesData
@@ -36,6 +37,13 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
     private val finalExercisesList = mutableListOf<ExercisesData>()
 
     /**
+     * Deletes template in TemplatesRoom
+     */
+    fun deleteTemplate(template: TemplatesData) {
+        repository.deleteTemplate(template)
+    }
+
+    /**
      * Insert new template in TemplatesRoom
      */
     fun insertNewTemplate(newTemplate: TemplatesData) {
@@ -46,7 +54,7 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
      * Remove all elements in finalExercisesList
      */
     fun clearFinalExercisesList() {
-        finalExercisesList.clear()
+        return finalExercisesList.clear()
     }
 
     /**

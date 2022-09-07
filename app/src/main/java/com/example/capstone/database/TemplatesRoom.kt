@@ -17,6 +17,9 @@ interface TemplatesDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertTemplates(templatesData: TemplatesData)
+
+    @Delete()
+    fun deleteTemplate(templatesData: TemplatesData)
 }
 
 @Database(entities = [TemplatesData::class], version = 1)

@@ -39,6 +39,9 @@ class ProfileFragment : Fragment() {
 
         binding.recyclerProfile.adapter = profileAdapter
 
+        /**
+         * adds divider per viewholder
+         */
         binding.recyclerProfile.addItemDecoration(
             DividerItemDecoration(
                 context,

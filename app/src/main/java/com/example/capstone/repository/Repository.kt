@@ -22,6 +22,12 @@ class Repository(
     val templatesList: LiveData<List<TemplatesData>> = templatesDatabase.templatesDao.getTemplates()
 
     /**
+     * Delete TemplatesData from Template's Room
+     */
+    fun deleteTemplate(template: TemplatesData) {
+        templatesDatabase.templatesDao.deleteTemplate(template)
+    }
+    /**
      * Insert new TemplatesData to Template's Room
      */
     fun insertNewTemplate(newTemplates: TemplatesData) {
