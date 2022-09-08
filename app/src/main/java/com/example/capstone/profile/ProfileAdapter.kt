@@ -42,6 +42,7 @@ class ProfileAdapter(private val sharedViewModel: SharedViewModel) :
              * 2) pass current TemplatesData to ProfileDetails Fragment
              */
             binding.editButton.setOnClickListener {
+                sharedViewModel.clearFinalExercisesList()
                 sharedViewModel.setCheckedExercisesList(data.exercises.toMutableList())
                 binding.root.findNavController().navigate(R.id.profileDetailFragment)
             }

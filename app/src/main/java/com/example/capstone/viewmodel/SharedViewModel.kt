@@ -54,6 +54,7 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
      * Remove all elements in finalExercisesList
      */
     fun clearFinalExercisesList() {
+        _checkedExercisesList.postValue(emptyList())
         return finalExercisesList.clear()
     }
 

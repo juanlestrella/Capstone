@@ -50,6 +50,7 @@ class ProfileFragment : Fragment() {
         )
 
         binding.fab.setOnClickListener {
+            viewModel.clearFinalExercisesList()
             /** Navigate to Profile Detail Fragment */
             navController.navigate(R.id.action_profileFragment_to_profileDetailFragment)
         }
