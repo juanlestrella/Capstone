@@ -31,7 +31,7 @@ class ProfileFragment : Fragment() {
 
         val binding = FragmentProfileBinding.inflate(inflater)
 
-        val profileAdapter = ProfileAdapter()
+        val profileAdapter = ProfileAdapter(viewModel)
 
         val navController = findNavController()
 

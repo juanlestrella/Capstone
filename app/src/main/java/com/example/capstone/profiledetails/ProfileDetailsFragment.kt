@@ -50,6 +50,10 @@ class ProfileDetailsFragment : Fragment() {
         (binding.recyclerProfileDetails.adapter as ProfileDetailsAdapter).submitList(finalList)
 
         /**
+         * Add a delete button per exercises or use swipeleft
+         */
+
+        /**
          * When user clicks ADD EXERCISES, navigate to the ExercisesFragment
          */
         binding.addExercisesButtonId.setOnClickListener {
