@@ -37,6 +37,21 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
     private val finalExercisesList = mutableListOf<ExercisesData>()
 
     /**
+     * Deletes a specific exercise
+     */
+    fun deleteExercise(exercisesData: ExercisesData) {
+        // might want to remove the element from _checkExerciseList
+        finalExercisesList.remove(exercisesData)
+    }
+
+    /**
+     * Insert an exercise in finalexercisesList
+     */
+    fun insertExercise(exercisesData: ExercisesData) {
+        finalExercisesList.add(exercisesData)
+    }
+
+    /**
      * Deletes template in TemplatesRoom
      */
     fun deleteTemplate(template: TemplatesData) {

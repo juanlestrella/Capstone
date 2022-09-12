@@ -1,9 +1,7 @@
 package com.example.capstone.profile
 
-import android.app.Application
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,7 +11,6 @@ import com.example.capstone.R
 import com.example.capstone.databinding.ListItemProfileBinding
 import com.example.capstone.entities.TemplatesData
 import com.example.capstone.viewmodel.SharedViewModel
-import okhttp3.internal.notify
 
 class ProfileAdapter(private val sharedViewModel: SharedViewModel) :
     ListAdapter<TemplatesData, ProfileAdapter.ViewHolder>(ProfileDiffCallback()) {
@@ -27,8 +24,6 @@ class ProfileAdapter(private val sharedViewModel: SharedViewModel) :
          * 4) Add click listener for delete and edit buttons
          */
         fun bind(data: TemplatesData) {
-            //val viewModel = SharedViewModel(Application())
-
             binding.templates = data
             /**
              * deletes the current template
@@ -42,11 +37,20 @@ class ProfileAdapter(private val sharedViewModel: SharedViewModel) :
              * 2) pass current TemplatesData to ProfileDetails Fragment
              */
             binding.editButton.setOnClickListener {
+                /**
+                 * Needs to delete current Template before navigating
+                 * In ProfileDetails,
+                 *      if user press back button, recreate this template
+                 *      elif user press Done button, create a new template with new exercises
+                 */
+                // deletes previous exercise list on ProfileDetails
                 sharedViewModel.clearFinalExercisesList()
+                // pass current TemplatesData to ProfileDetails
                 sharedViewModel.setCheckedExercisesList(data.exercises.toMutableList())
                 binding.root.findNavController().navigate(R.id.profileDetailFragment)
             }
 
+            // Create an inner RecyclerView using ProfileInnerAdapter
             binding.recyclerListItemProfile.layoutManager =
                 LinearLayoutManager(binding.root.context, LinearLayoutManager.VERTICAL, false)
             binding.recyclerListItemProfile.adapter = ProfileInnerAdapter()

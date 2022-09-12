@@ -8,10 +8,14 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.RecyclerView
 import com.example.capstone.R
 import com.example.capstone.databinding.FragmentProfileDetailsBindingImpl
+import com.example.capstone.entities.ExercisesData
 import com.example.capstone.entities.TemplatesData
 import com.example.capstone.viewmodel.SharedViewModel
+import com.google.android.material.snackbar.Snackbar
 import okhttp3.internal.notifyAll
 
 class ProfileDetailsFragment : Fragment() {
@@ -50,8 +54,41 @@ class ProfileDetailsFragment : Fragment() {
         (binding.recyclerProfileDetails.adapter as ProfileDetailsAdapter).submitList(finalList)
 
         /**
-         * Add a delete button per exercises or use swipeleft
+         * Swipe to Delete in recyclerProfileDetails
+         * Using ItemTouchHelper
          */
+        ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT) {
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ): Boolean {
+                return false
+            }
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                // get item position
+                val position = viewHolder.adapterPosition
+                // get the item being deleted
+                val deletedExercise: ExercisesData = finalList.get(position)
+                // delete from the viewmodel
+                viewModel.deleteExercise(deletedExercise)
+                // notify recycler view about the removed item
+                (binding.recyclerProfileDetails.adapter as ProfileDetailsAdapter)
+                    .notifyItemRemoved(viewHolder.adapterPosition)
+                // user can undo the deleted exercise
+//                Snackbar.make(binding.recyclerProfileDetails, "Deleted: " + deletedExercise.name, Snackbar.LENGTH_LONG)
+//                    .setAction(
+//                        "Undo",
+//                        View.OnClickListener {
+//                            // reinsert the deleted item
+//                            viewModel.insertExercise(deletedExercise)
+//
+//                            (binding.recyclerProfileDetails.adapter as ProfileDetailsAdapter)
+//                                .notifyItemInserted(position)
+//                        }).show()
+            }
+        }).attachToRecyclerView(binding.recyclerProfileDetails)
 
         /**
          * When user clicks ADD EXERCISES, navigate to the ExercisesFragment
