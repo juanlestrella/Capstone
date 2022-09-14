@@ -11,6 +11,7 @@ import com.example.capstone.entities.TemplatesData
 import com.example.capstone.repository.Repository
 import kotlinx.coroutines.launch
 import java.lang.Exception
+import kotlin.reflect.jvm.internal.impl.types.checker.TypeCheckerContext
 
 /**
  * Use AndroidViewModel(application) to give the
@@ -35,6 +36,10 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
     val templates = repository.templatesList
 
     private val finalExercisesList = mutableListOf<ExercisesData>()
+
+    var isEditing: Boolean = false
+    var isEditTemplateSaved: Boolean = false
+    lateinit var current_editing_template: TemplatesData
 
     /**
      * Deletes a specific exercise

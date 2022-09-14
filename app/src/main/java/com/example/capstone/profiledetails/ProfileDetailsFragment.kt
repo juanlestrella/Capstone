@@ -114,12 +114,11 @@ class ProfileDetailsFragment : Fragment() {
                 val newTemplatesData: TemplatesData = TemplatesData(title, finalList)
                 viewModel.insertNewTemplate(newTemplatesData)
 
-                //delete previous list
-                //need to do more with recycler view
-//                viewModel.clearFinalExercisesList()
-//                finalList = viewModel.returnFinalExercisesList()
-//                (binding.recyclerProfileDetails.adapter as ProfileDetailsAdapter).submitList(finalList)
-
+                // check if editing an old template or creating a new one
+                if(viewModel.isEditing){
+                    viewModel.isEditing = false
+                    viewModel.isEditTemplateSaved = true
+                }
 
                 navController.navigate(R.id.action_profileDetailFragment_to_profileFragment)
 

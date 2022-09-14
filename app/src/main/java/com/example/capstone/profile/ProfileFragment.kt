@@ -57,6 +57,11 @@ class ProfileFragment : Fragment() {
             navController.navigate(R.id.action_profileFragment_to_profileDetailFragment)
         }
 
+        if (viewModel.isEditTemplateSaved){
+            viewModel.deleteTemplate(viewModel.current_editing_template)
+            viewModel.isEditTemplateSaved = false
+        }
+
         /**
          * Observe templates' LiveData and submit it to the recycler view's adapter
          */
