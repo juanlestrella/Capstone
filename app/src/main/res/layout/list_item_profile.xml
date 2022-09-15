@@ -27,7 +27,7 @@
 
         <Button
             android:id="@+id/edit_button"
-            style="@style/ButtonText"
+            style="@style/EditButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/edit"
@@ -37,7 +37,7 @@
 
         <Button
             android:id="@+id/delete_button"
-            style="@style/ButtonText"
+            style="@style/DeleteButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/delete"
