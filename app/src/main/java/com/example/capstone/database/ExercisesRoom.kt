@@ -4,7 +4,6 @@ import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.capstone.entities.ExercisesData
-import com.example.capstone.entities.TemplatesData
 
 @Dao
 interface ExercisesDao {

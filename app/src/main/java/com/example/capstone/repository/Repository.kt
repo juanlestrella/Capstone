@@ -1,6 +1,5 @@
 package com.example.capstone.repository
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import com.example.capstone.Constants
 import com.example.capstone.database.ExercisesDatabase

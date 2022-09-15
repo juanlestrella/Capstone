@@ -29,10 +29,15 @@
         <entry key="..\:/Users/juanl/Documents/UdacityNanodegree/Capstone/app/src/main/res/xml/network_security_config.xml" value="0.1" />
         <entry key="..\:/Users/juanl/OneDrive/Documents/UdacityNanodegree/Capstone/app/src/main/res/drawable/ic_baseline_circle_24.xml" value="0.1" />
         <entry key="..\:/Users/juanl/OneDrive/Documents/UdacityNanodegree/Capstone/app/src/main/res/layout/activity_profile.xml" value="0.1" />
+        <entry key="..\:/Users/juanl/OneDrive/Documents/UdacityNanodegree/Capstone/app/src/main/res/layout/authentication.xml" value="0.22780797101449277" />
         <entry key="..\:/Users/juanl/OneDrive/Documents/UdacityNanodegree/Capstone/app/src/main/res/layout/fragment_exercises.xml" value="0.1" />
         <entry key="..\:/Users/juanl/OneDrive/Documents/UdacityNanodegree/Capstone/app/src/main/res/layout/fragment_profile.xml" value="0.11197916666666667" />
         <entry key="..\:/Users/juanl/OneDrive/Documents/UdacityNanodegree/Capstone/app/src/main/res/layout/fragment_profile_details.xml" value="0.11197916666666667" />
+        <entry key="..\:/Users/juanl/OneDrive/Documents/UdacityNanodegree/Capstone/app/src/main/res/layout/fragment_timer.xml" value="0.22780797101449277" />
+        <entry key="..\:/Users/juanl/OneDrive/Documents/UdacityNanodegree/Capstone/app/src/main/res/layout/list_item_exercises.xml" value="0.22780797101449277" />
         <entry key="..\:/Users/juanl/OneDrive/Documents/UdacityNanodegree/Capstone/app/src/main/res/layout/list_item_profile.xml" value="0.11200000000000002" />
+        <entry key="..\:/Users/juanl/OneDrive/Documents/UdacityNanodegree/Capstone/app/src/main/res/layout/list_item_profile_details.xml" value="0.22780797101449277" />
+        <entry key="..\:/Users/juanl/OneDrive/Documents/UdacityNanodegree/Capstone/app/src/main/res/layout/list_item_profile_inner.xml" value="0.22780797101449277" />
       </map>
     </option>
   </component>

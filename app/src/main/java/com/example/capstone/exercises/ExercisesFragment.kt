@@ -30,8 +30,6 @@ class ExercisesFragment : Fragment() {
         setHasOptionsMenu(true)
         if (savedInstanceState != null) {
             val state = savedInstanceState.getParcelableArrayList<Parcelable>(KEY_CHECKED)
-            //viewModel.exercisesList.value = state as MutableList<ExercisesData>
-            //exercisesAdapter.submitList(state as MutableList<ExercisesData>)
             state?.forEach {
                 exercisesAdapter.checkBoxList.add(it as ExercisesData)
             }
@@ -75,7 +73,6 @@ class ExercisesFragment : Fragment() {
          */
         binding.AddFAB.setOnClickListener {
             viewModel.setCheckedExercisesList(exercisesAdapter.returnCheckBoxList())
-            // Navigate to ProfileDetailFragment
             navController.navigate(R.id.action_exercisesFragment_to_profileDetailFragment)
         }
 
@@ -84,7 +81,6 @@ class ExercisesFragment : Fragment() {
          */
         binding.ClearFAB.setOnClickListener {
             viewModel.checkBoxAllFalse()
-            // instantly change the checkboxes view
             exercisesAdapter.notifyDataSetChanged()
         }
 
@@ -94,7 +90,6 @@ class ExercisesFragment : Fragment() {
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         val arrLst = exercisesAdapter.returnCheckBoxList() as ArrayList<Parcelable>
-        //val arrLst = viewModel.exercisesList.value as ArrayList<Parcelable>
         outState.putParcelableArrayList(KEY_CHECKED, arrLst)
     }
 }

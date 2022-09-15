@@ -5,9 +5,24 @@
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
+
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
     <color name="red">#FF605C</color>
     <color name="orange_yellow">#FFBD44</color>
     <color name="green">#00CA4E</color>
+
+    <!-- Summer Happiness -->
+    <color name="steel_blue">#2E92A9</color>
+    <color name="light_blue">#ADD9E7</color>
+    <color name="cultured">#F4F4F4</color>
+    <color name="terra_cotta">#EF7365</color>
+    <color name="crayola_orange_yellow">#FBD26C</color>
+    <color name="eaton_blue">#9CD3A3</color>
+
+    <!-- Lavender and Blue Pastel -->
+    <color name="maximum_blue_purple">#A8AFED</color>
+    <color name="lavender_blue">#D1D8FF</color>
+    <color name="milk">#FFFDF5</color>
 </resources>

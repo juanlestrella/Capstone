@@ -16,7 +16,6 @@ import com.example.capstone.entities.ExercisesData
 import com.example.capstone.entities.TemplatesData
 import com.example.capstone.viewmodel.SharedViewModel
 import com.google.android.material.snackbar.Snackbar
-import okhttp3.internal.notifyAll
 
 class ProfileDetailsFragment : Fragment() {
 
@@ -103,29 +102,45 @@ class ProfileDetailsFragment : Fragment() {
          * Template's Title and list of Exercises
          */
         binding.doneButtonId.setOnClickListener {
-            if (binding.templateNameEditviewId.text.isEmpty()){
+            if (binding.templateNameEditviewId.text.isEmpty()) {
                 Toast.makeText(context, "Please Enter Title", Toast.LENGTH_LONG).show()
-            }
-            else if(finalList.isEmpty()){
+            } else if (finalList.isEmpty()) {
                 Toast.makeText(context, "Please Add Exercises", Toast.LENGTH_LONG).show()
-            }
-            else{
+            } else {
                 val title = binding.templateNameEditviewId.text.toString()
-                val newTemplatesData: TemplatesData = TemplatesData(title, finalList)
-                viewModel.insertNewTemplate(newTemplatesData)
 
-                // check if editing an old template or creating a new one
-                if(viewModel.isEditing){
-                    viewModel.isEditing = false
-                    viewModel.isEditTemplateSaved = true
+                /**
+                 * limit the title's characters to 3 to 8
+                 */
+                if (title.length < 3) {
+                    Toast.makeText(
+                        context,
+                        "Title should be at least 3 characters",
+                        Toast.LENGTH_LONG
+                    ).show()
+                } else if (title.length > 12) {
+                    Toast.makeText(
+                        context,
+                        "Title should be less than 12 characters",
+                        Toast.LENGTH_LONG
+                    ).show()
+                } else {
+                    // insert new template
+                    val newTemplatesData: TemplatesData = TemplatesData(title, finalList)
+                    viewModel.insertNewTemplate(newTemplatesData)
+
+                    // check if editing an old template or creating a new one
+                    if (viewModel.isEditing) {
+                        viewModel.isEditing = false
+                        viewModel.isEditTemplateSaved = true
+                    }
+
+                    navController.navigate(R.id.action_profileDetailFragment_to_profileFragment)
+
+                    viewModel.clearFinalExercisesList()
                 }
-
-                navController.navigate(R.id.action_profileDetailFragment_to_profileFragment)
-
-                viewModel.clearFinalExercisesList()
             }
         }
-
         return binding.root
     }
 }

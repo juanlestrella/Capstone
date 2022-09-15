@@ -3,7 +3,6 @@ package com.example.capstone.viewmodel
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.*
-import androidx.room.Delete
 import com.example.capstone.database.getExercisesDataBase
 import com.example.capstone.database.getTemplatesDatabase
 import com.example.capstone.entities.ExercisesData
@@ -11,7 +10,6 @@ import com.example.capstone.entities.TemplatesData
 import com.example.capstone.repository.Repository
 import kotlinx.coroutines.launch
 import java.lang.Exception
-import kotlin.reflect.jvm.internal.impl.types.checker.TypeCheckerContext
 
 /**
  * Use AndroidViewModel(application) to give the
@@ -31,11 +29,11 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
     private val exercisesDatabase = getExercisesDataBase(application)
     private val templatesDatabase = getTemplatesDatabase(application)
     private val repository = Repository(exercisesDatabase, templatesDatabase)
+    private val finalExercisesList = mutableListOf<ExercisesData>()
 
-    val exercisesList = repository.exercisesList
     val templates = repository.templatesList
 
-    private val finalExercisesList = mutableListOf<ExercisesData>()
+    val exercisesList = repository.exercisesList
 
     var isEditing: Boolean = false
     var isEditTemplateSaved: Boolean = false
@@ -45,12 +43,11 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
      * Deletes a specific exercise
      */
     fun deleteExercise(exercisesData: ExercisesData) {
-        // might want to remove the element from _checkExerciseList
         finalExercisesList.remove(exercisesData)
     }
 
     /**
-     * Insert an exercise in finalexercisesList
+     * Insert an exercise in finalExercisesList
      */
     fun insertExercise(exercisesData: ExercisesData) {
         finalExercisesList.add(exercisesData)
