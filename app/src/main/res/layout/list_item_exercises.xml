@@ -14,61 +14,57 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
         <TextView
             android:id="@+id/name_id"
             style="@style/DataText"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:hint="@string/name"
             android:text="@{@string/name_placeholder(exercises.name)}"
-            app:layout_constrainedWidth="true"
             app:layout_constraintBottom_toTopOf="@id/bodypart_id"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/gif_id"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <TextView
             android:id="@+id/bodypart_id"
             style="@style/DataText"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:hint="@string/bodypart"
             android:text="@{@string/bodypart_placeholder(exercises.bodyPart)}"
-            android:textAlignment="textStart"
             app:layout_constrainedWidth="true"
             app:layout_constraintBottom_toTopOf="@id/equipment_id"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/gif_id"
             app:layout_constraintTop_toBottomOf="@id/name_id" />
 
         <TextView
             android:id="@+id/equipment_id"
             style="@style/DataText"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:hint="@string/equipment"
             android:text="@{@string/equipment_placeholder(exercises.equipment)}"
-            app:layout_constrainedWidth="true"
             app:layout_constraintBottom_toTopOf="@id/target_id"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/gif_id"
             app:layout_constraintTop_toBottomOf="@id/bodypart_id" />
 
         <TextView
             android:id="@+id/target_id"
             style="@style/DataText"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:hint="@string/target"
             android:text="@{@string/target_placeholder(exercises.target)}"
             app:layout_constrainedWidth="true"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/gif_id"
             app:layout_constraintTop_toBottomOf="@id/equipment_id" />
 
         <ImageView
             android:id="@+id/gif_id"
+            android:layout_margin="@dimen/size_4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/gif"
@@ -82,7 +78,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBaseline_toBaselineOf="@+id/target_id"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/target_id" />
 
 

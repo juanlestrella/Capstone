@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Capstone</string>
+    <string name="app_name">Sets - Workout Planner</string>
     <string name="login">Login/Signup</string>
     <string name="profile">Profile</string>
     <string name="exercises">Exercises</string>
