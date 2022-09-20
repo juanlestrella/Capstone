@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -83,6 +84,26 @@ class ExercisesFragment : Fragment() {
             viewModel.checkBoxAllFalse()
             exercisesAdapter.notifyDataSetChanged()
         }
+
+        /**
+         * Search bar
+         */
+        binding.searchBarId.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(name: String?): Boolean {
+                if (name.isNullOrEmpty() || name.isBlank()){
+                    viewModel.getAllExercises()
+                }else{
+                    viewModel.searchExercise(name)
+                }
+                return false
+            }
+
+            override fun onQueryTextChange(name: String?): Boolean {
+                viewModel.getAllExercises()
+                return false
+            }
+
+        })
 
         return binding.root
     }

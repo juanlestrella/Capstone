@@ -40,6 +40,20 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
     lateinit var current_editing_template: TemplatesData
 
     /**
+     * Get all the exercises from database
+     */
+    fun getAllExercises(){
+        repository.getAllExercisesList()
+    }
+
+    /**
+     * Search Bar: search an exercise with name
+     */
+    fun searchExercise(name: String){
+        repository.searchExercise(name)
+    }
+
+    /**
      * Deletes a specific exercise
      */
     fun deleteExercise(exercisesData: ExercisesData) {

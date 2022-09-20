@@ -14,16 +14,25 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".exercises.ExercisesFragment">
+        <SearchView
+            android:id="@+id/search_bar_id"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_32"
+            android:layout_margin="@dimen/size_8"
+            android:padding="@dimen/size_8"
+            android:iconifiedByDefault="false"
+            android:queryHint="Search Workouts"
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_exercises"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/size_8"
+            android:padding="@dimen/size_8"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/search_bar_id"
             tools:listitem="@layout/list_item_exercises" />
 
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton

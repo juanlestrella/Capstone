@@ -2,14 +2,18 @@ package com.example.capstone.exercises
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Filter
+import android.widget.Filterable
+import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.capstone.databinding.ListItemExercisesBinding
 import com.example.capstone.entities.ExercisesData
+import com.example.capstone.viewmodel.SharedViewModel
 
 class ExercisesAdapter() :
-    ListAdapter<ExercisesData, ExercisesAdapter.ViewHolder>(ExercisesDiffCallback()) {
+    ListAdapter<ExercisesData, ExercisesAdapter.ViewHolder>(ExercisesDiffCallback()){
 
     val checkBoxList = mutableListOf<ExercisesData>()
 
@@ -61,6 +65,26 @@ class ExercisesAdapter() :
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         return holder.bind(getItem(position))
     }
+
+//    override fun getFilter(): Filter {
+//        return object : Filter() {
+//            override fun performFiltering(constraint: CharSequence?): FilterResults {
+//                return FilterResults().apply {
+//                    values =
+//                        if (constraint.isNullOrEmpty()){
+//                            vmList
+//                        }else{
+//                            val filteredList = mutableListOf<ExercisesData>()
+//                            vmList.filter()
+//                        }
+//                }
+//            }
+//
+//            override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
+//                submitList(results?.values as List<ExercisesData>)
+//            }
+//        }
+//    }
 
 }
 

@@ -1,6 +1,7 @@
 package com.example.capstone.repository
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.example.capstone.Constants
 import com.example.capstone.database.ExercisesDatabase
 import com.example.capstone.database.TemplatesDatabase
@@ -15,10 +16,33 @@ class Repository(
     private val templatesDatabase: TemplatesDatabase
 ) {
 
-    val exercisesList: LiveData<List<ExercisesData>> =
-        exercisesDatabase.exercisesDao.getExercises()
+    private val _exercisesList = MutableLiveData<List<ExercisesData>>()
+    val exercisesList: LiveData<List<ExercisesData>>
+        get() = _exercisesList
 
-    val templatesList: LiveData<List<TemplatesData>> = templatesDatabase.templatesDao.getTemplates()
+//    val exercisesList: LiveData<List<ExercisesData>> =
+//        exercisesDatabase.exercisesDao.getExercises()
+
+    val templatesList: LiveData<List<TemplatesData>> =
+        templatesDatabase.templatesDao.getTemplates()
+
+    init {
+        getAllExercisesList()
+    }
+
+    /**
+     * Fill the exercisesList with all the exercise from the database
+     */
+    fun getAllExercisesList(){
+        _exercisesList.postValue(exercisesDatabase.exercisesDao.getExercises())
+    }
+
+    /**
+     * Search Bar: Query exercises table with exercise name
+     */
+    fun searchExercise(name: String) {
+        _exercisesList.postValue(exercisesDatabase.exercisesDao.findExerciseWithName(name))
+    }
 
     /**
      * Delete TemplatesData from Template's Room
