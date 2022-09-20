@@ -20,11 +20,13 @@ class Repository(
     val exercisesList: LiveData<List<ExercisesData>>
         get() = _exercisesList
 
-//    val exercisesList: LiveData<List<ExercisesData>> =
-//        exercisesDatabase.exercisesDao.getExercises()
-
     val templatesList: LiveData<List<TemplatesData>> =
         templatesDatabase.templatesDao.getTemplates()
+
+    /**
+     * Gets all the bodypart names
+     */
+    val allBodyparts = exercisesDatabase.exercisesDao.getAllBodyParts()
 
     init {
         getAllExercisesList()

@@ -32,12 +32,13 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
     private val finalExercisesList = mutableListOf<ExercisesData>()
 
     val templates = repository.templatesList
-
     val exercisesList = repository.exercisesList
 
     var isEditing: Boolean = false
     var isEditTemplateSaved: Boolean = false
     lateinit var current_editing_template: TemplatesData
+
+    val allBodyparts = repository.allBodyparts
 
     /**
      * Get all the exercises from database

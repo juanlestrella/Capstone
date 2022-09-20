@@ -6,6 +6,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.CursorAdapter
 import android.widget.SearchView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -86,7 +88,10 @@ class ExercisesFragment : Fragment() {
         }
 
         /**
-         * Search bar
+         * Search bar:
+         * If there is a query, then find the name of the exercise
+         * else show all the exercises.
+         * While the text changes on search bar, show all exercises until submit is clicked
          */
         binding.searchBarId.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(name: String?): Boolean {
@@ -104,6 +109,21 @@ class ExercisesFragment : Fragment() {
             }
 
         })
+
+        /**
+         * Bodypart Spinner:
+         */
+        val bodypartSpinner = binding.bodypartSpinnerId
+        // create an array of strings to the store bodypart names from viewmodel -> repository -> ExercisesRoom
+        ArrayAdapter(
+            context!!,
+            android.R.layout.simple_spinner_item,
+            viewModel.allBodyparts
+        ).also { adapter ->
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            bodypartSpinner.adapter = adapter
+        }
+        // TODO: bodypartSpinner.onItemSelectedListener
 
         return binding.root
     }

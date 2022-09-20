@@ -16,11 +16,20 @@ interface ExercisesDao {
     fun getExercises(): List<ExercisesData>
 
     /**
-     * Gets a specific exercise from the exercises table
+     * Finds a specific exercise from the exercises table
      */
     @Query("SELECT * FROM exercises WHERE name = :queryName ")
     fun findExerciseWithName(queryName: String): List<ExercisesData>
 
+    /**
+     * Gets all the bodypart names
+     */
+    @Query("SELECT DISTINCT bodyPart FROM exercises")
+    fun getAllBodyParts(): List<String>
+
+    /**
+     * Insert an exercise in the table
+     */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertExercises(exercisesData: ExercisesData)
 }
