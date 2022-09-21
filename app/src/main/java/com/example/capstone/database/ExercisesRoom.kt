@@ -28,6 +28,12 @@ interface ExercisesDao {
     fun getAllBodyParts(): List<String>
 
     /**
+     * Filter to show only selected body part
+     */
+    @Query("SELECT * FROM exercises WHERE bodyPart = :bodyPart")
+    fun filterBodyPart(bodyPart: String): List<ExercisesData>
+
+    /**
      * Insert an exercise in the table
      */
     @Insert(onConflict = OnConflictStrategy.REPLACE)

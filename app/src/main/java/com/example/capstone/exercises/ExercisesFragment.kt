@@ -6,10 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.CursorAdapter
-import android.widget.SearchView
-import android.widget.Toast
+import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -109,6 +106,7 @@ class ExercisesFragment : Fragment() {
             }
 
         })
+        val allBodyParts = viewModel.allBodyparts
 
         /**
          * Bodypart Spinner:
@@ -118,12 +116,22 @@ class ExercisesFragment : Fragment() {
         ArrayAdapter(
             context!!,
             android.R.layout.simple_spinner_item,
-            viewModel.allBodyparts
+            allBodyParts
         ).also { adapter ->
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             bodypartSpinner.adapter = adapter
         }
-        // TODO: bodypartSpinner.onItemSelectedListener
+        bodypartSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                if (position != 0){
+                    viewModel.filterBodyPart(allBodyParts[position])
+                }
+            }
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                Toast.makeText(context, "Nothing selected", Toast.LENGTH_LONG).show()
+            }
+
+        }
 
         return binding.root
     }

@@ -26,10 +26,16 @@ class Repository(
     /**
      * Gets all the bodypart names
      */
-    val allBodyparts = exercisesDatabase.exercisesDao.getAllBodyParts()
+    val allBodyParts: List<String> = listOf("Body Parts") + exercisesDatabase.exercisesDao.getAllBodyParts()//.add(0, "Body Parts")
 
     init {
         getAllExercisesList()
+    }
+    /**
+     * Filter exerciseList by selected bodypart
+     */
+    fun filterBodyPart(bodyPart: String){
+        _exercisesList.postValue(exercisesDatabase.exercisesDao.filterBodyPart(bodyPart))
     }
 
     /**
