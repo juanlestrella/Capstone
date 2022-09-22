@@ -33,11 +33,24 @@ class Repository(
     init {
         getAllExercisesList()
     }
+
     /**
-     * Filter exerciseList by selected bodypart
+     * More general way of filtering all three types (Body Parts, Equipments, Targets)
      */
-    fun filterBodyPart(bodyPart: String){
-        _exercisesList.postValue(exercisesDatabase.exercisesDao.filterBodyPart(bodyPart))
+    fun filterExercises(bodyPart: String, equipment: String, target: String) {
+        var bp = bodyPart
+        var eq = equipment
+        var t = target
+        if (bodyPart.isEmpty()){
+            bp = "%"
+        }
+        if (equipment.isEmpty()){
+            eq = "%"
+        }
+        if (target.isEmpty()){
+            t = "%"
+        }
+        _exercisesList.postValue(exercisesDatabase.exercisesDao.filterExercises(bp, eq, t))
     }
 
     /**
@@ -75,7 +88,6 @@ class Repository(
             val newListExercises =
                 ExercisesApi.retrofitService.getExercises(Constants.RAPID_HOST, Constants.KEY)
             newListExercises.forEach { newExercise ->
-                //Log.i("Repository", newExercise.toString())
                 exercisesDatabase.exercisesDao.insertExercises(newExercise)
             }
         }

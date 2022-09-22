@@ -57,16 +57,10 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
     }
 
     /**
-     * Filter exerciseList by selected bodypart
+     * More general way of filtering all three types (Body Parts, Equipments, Targets)
      */
-    fun filterBodyPart(bodyPart: String){
-        repository.filterBodyPart(bodyPart)
-    }
-    /**
-     * Filter exerciseList by selected bodypart
-     */
-    fun filterEquipment(equipment: String){
-        repository.filterBodyPart(equipment)
+    fun filterExercises(bodyPart: String, equipment: String, target: String){
+        repository.filterExercises(bodyPart, equipment, target)
     }
 
     /**

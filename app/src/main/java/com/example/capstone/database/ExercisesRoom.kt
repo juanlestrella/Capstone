@@ -40,22 +40,10 @@ interface ExercisesDao {
     fun getAllTargets(): List<String>
 
     /**
-     * Filter to show only selected body part
+     * Filter for exercises
      */
-    @Query("SELECT * FROM exercises WHERE bodyPart = :bodyPart")
-    fun filterBodyPart(bodyPart: String): List<ExercisesData>
-
-    /**
-     * Filter to show only selected equipment
-     */
-    @Query("SELECT * FROM exercises WHERE equipment = :equipment")
-    fun filterEquipment(equipment: String): List<ExercisesData>
-
-    /**
-     * Filter to show only selected target
-     */
-    @Query("SELECT * FROM exercises WHERE target = :target")
-    fun filterTarget(target: String): List<ExercisesData>
+    @Query("SELECT * FROM exercises WHERE bodyPart LIKE :bodyPart and equipment LIKE :equipment and target LIKE :target")
+    fun filterExercises(bodyPart: String, equipment: String, target: String) : List<ExercisesData>
 
     /**
      * Insert an exercise in the table

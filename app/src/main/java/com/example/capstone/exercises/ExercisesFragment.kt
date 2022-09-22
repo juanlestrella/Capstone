@@ -25,6 +25,10 @@ class ExercisesFragment : Fragment() {
 
     private val exercisesAdapter = ExercisesAdapter()
 
+    private var bodyPartFilter = ""
+    private var equipmentFilter = ""
+    private var targetFilter = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
@@ -90,6 +94,8 @@ class ExercisesFragment : Fragment() {
          * else show all the exercises.
          * While the text changes on search bar, show all exercises until submit is clicked
          */
+        // TODO: Find a way to show exercises while user is typing
+        //  --> maybe do the same as the filters one
         binding.searchBarId.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(name: String?): Boolean {
                 if (name.isNullOrEmpty() || name.isBlank()){
@@ -142,11 +148,27 @@ class ExercisesFragment : Fragment() {
         }
         spinnerId.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                /**
+                 * Changes the exerciseList based on selected filter
+                 */
                 if (position != 0){
-                    viewModel.filterBodyPart(listOfFilterNames[position])
-                }else{
-                    viewModel.getAllExercises()
+                    when(spinnerId.id){
+                        R.id.bodypart_spinner_id -> bodyPartFilter = listOfFilterNames[position]
+                        R.id.equipment_spinner_id -> equipmentFilter = listOfFilterNames[position]
+                        R.id.target_spinner_id -> targetFilter = listOfFilterNames[position]
+                    }
                 }
+                /**
+                 * if no filter is selected from specific filter, then show all instead
+                 */
+                else{
+                    when(spinnerId.id){
+                        R.id.bodypart_spinner_id -> bodyPartFilter = "%"
+                        R.id.equipment_spinner_id -> equipmentFilter = "%"
+                        R.id.target_spinner_id -> targetFilter = "%"
+                    }
+                }
+                viewModel.filterExercises(bodyPartFilter, equipmentFilter, targetFilter)
             }
             override fun onNothingSelected(parent: AdapterView<*>?) {
                 Toast.makeText(context, "Nothing selected", Toast.LENGTH_LONG).show()

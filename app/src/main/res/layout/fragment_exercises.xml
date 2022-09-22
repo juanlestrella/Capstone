@@ -64,21 +64,23 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_exercises"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_margin="@dimen/size_8"
-            android:padding="@dimen/size_8"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/target_spinner_id"
+            app:layout_constraintBottom_toBottomOf="parent"
             tools:listitem="@layout/list_item_exercises" />
 
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
             android:id="@+id/AddFAB"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/size_96"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/size_8"
             android:backgroundTint="@color/green"
+            android:paddingStart="0dp"
+            android:paddingEnd="0dp"
             android:clickable="true"
             android:contentDescription="@string/add_exercises"
             android:focusable="true"
@@ -91,10 +93,12 @@
 
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
             android:id="@+id/ClearFAB"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/size_96"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/size_8"
             android:backgroundTint="@color/red"
+            android:paddingStart="0dp"
+            android:paddingEnd="0dp"
             android:clickable="true"
             android:focusable="true"
             android:text="@string/clear"
