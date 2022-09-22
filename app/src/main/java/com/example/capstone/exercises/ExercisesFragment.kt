@@ -125,6 +125,8 @@ class ExercisesFragment : Fragment() {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 if (position != 0){
                     viewModel.filterBodyPart(allBodyParts[position])
+                }else{
+                    viewModel.getAllExercises()
                 }
             }
             override fun onNothingSelected(parent: AdapterView<*>?) {
