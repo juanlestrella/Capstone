@@ -26,7 +26,9 @@ class Repository(
     /**
      * Gets all the bodypart names
      */
-    val allBodyParts: List<String> = listOf("Body Parts") + exercisesDatabase.exercisesDao.getAllBodyParts()//.add(0, "Body Parts")
+    val allBodyParts: List<String> = listOf("Body Parts") + exercisesDatabase.exercisesDao.getAllBodyParts()
+    val allEquipments: List<String> = listOf("Equipments") + exercisesDatabase.exercisesDao.getAllEquipments()
+    val allTargets: List<String> = listOf("Targets") + exercisesDatabase.exercisesDao.getAllTargets()
 
     init {
         getAllExercisesList()

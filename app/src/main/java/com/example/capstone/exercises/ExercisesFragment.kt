@@ -106,25 +106,44 @@ class ExercisesFragment : Fragment() {
             }
 
         })
-        val allBodyParts = viewModel.allBodyparts
 
         /**
          * Bodypart Spinner:
          */
+        val allBodyParts = viewModel.allBodyparts
         val bodypartSpinner = binding.bodypartSpinnerId
-        // create an array of strings to the store bodypart names from viewmodel -> repository -> ExercisesRoom
+        spinnerHelper(allBodyParts, bodypartSpinner)
+
+        /**
+         * Equipment: Spinner
+         */
+        val allEquipments = viewModel.allEquipments
+        val equipmentSpinner = binding.equipmentSpinnerId
+        spinnerHelper(allEquipments, equipmentSpinner)
+
+        /**
+         * Target Spinner:
+         */
+        val allTargets = viewModel.allTarget
+        val targetSpinner = binding.targetSpinnerId
+        spinnerHelper(allTargets, targetSpinner)
+
+        return binding.root
+    }
+
+    private fun spinnerHelper(listOfFilterNames: List<String>, spinnerId: Spinner){
         ArrayAdapter(
             context!!,
             android.R.layout.simple_spinner_item,
-            allBodyParts
+            listOfFilterNames
         ).also { adapter ->
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            bodypartSpinner.adapter = adapter
+            spinnerId.adapter = adapter
         }
-        bodypartSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+        spinnerId.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 if (position != 0){
-                    viewModel.filterBodyPart(allBodyParts[position])
+                    viewModel.filterBodyPart(listOfFilterNames[position])
                 }else{
                     viewModel.getAllExercises()
                 }
@@ -132,10 +151,7 @@ class ExercisesFragment : Fragment() {
             override fun onNothingSelected(parent: AdapterView<*>?) {
                 Toast.makeText(context, "Nothing selected", Toast.LENGTH_LONG).show()
             }
-
         }
-
-        return binding.root
     }
 
     override fun onSaveInstanceState(outState: Bundle) {

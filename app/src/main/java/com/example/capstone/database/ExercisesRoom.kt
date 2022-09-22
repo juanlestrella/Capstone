@@ -22,16 +22,40 @@ interface ExercisesDao {
     fun findExerciseWithName(queryName: String): List<ExercisesData>
 
     /**
-     * Gets all the bodypart names
+     * Gets all the body parts
      */
     @Query("SELECT DISTINCT bodyPart FROM exercises")
     fun getAllBodyParts(): List<String>
+
+    /**
+     * Gets all the equipments
+     */
+    @Query("SELECT DISTINCT equipment FROM exercises")
+    fun getAllEquipments(): List<String>
+
+    /**
+     * Gets all the targets
+     */
+    @Query("SELECT DISTINCT target FROM exercises")
+    fun getAllTargets(): List<String>
 
     /**
      * Filter to show only selected body part
      */
     @Query("SELECT * FROM exercises WHERE bodyPart = :bodyPart")
     fun filterBodyPart(bodyPart: String): List<ExercisesData>
+
+    /**
+     * Filter to show only selected equipment
+     */
+    @Query("SELECT * FROM exercises WHERE equipment = :equipment")
+    fun filterEquipment(equipment: String): List<ExercisesData>
+
+    /**
+     * Filter to show only selected target
+     */
+    @Query("SELECT * FROM exercises WHERE target = :target")
+    fun filterTarget(target: String): List<ExercisesData>
 
     /**
      * Insert an exercise in the table

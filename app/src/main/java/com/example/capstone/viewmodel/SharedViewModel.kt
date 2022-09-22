@@ -39,6 +39,8 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
     lateinit var current_editing_template: TemplatesData
 
     val allBodyparts = repository.allBodyParts
+    val allEquipments = repository.allEquipments
+    val allTarget = repository.allTargets
 
     /**
      * Get all the exercises from database
@@ -59,6 +61,12 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
      */
     fun filterBodyPart(bodyPart: String){
         repository.filterBodyPart(bodyPart)
+    }
+    /**
+     * Filter exerciseList by selected bodypart
+     */
+    fun filterEquipment(equipment: String){
+        repository.filterBodyPart(equipment)
     }
 
     /**
