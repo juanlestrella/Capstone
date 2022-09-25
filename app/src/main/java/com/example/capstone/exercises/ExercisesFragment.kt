@@ -94,12 +94,10 @@ class ExercisesFragment : Fragment() {
          * else show all the exercises.
          * While the text changes on search bar, show all exercises until submit is clicked
          */
-        // TODO: Find a way to show exercises while user is typing
-        //  --> maybe do the same as the filters one
         binding.searchBarId.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(name: String?): Boolean {
                 if (name.isNullOrEmpty() || name.isBlank()){
-                    viewModel.getAllExercises()
+                    viewModel.searchExercise("%")
                 }else{
                     viewModel.searchExercise(name)
                 }
@@ -108,6 +106,12 @@ class ExercisesFragment : Fragment() {
 
             override fun onQueryTextChange(name: String?): Boolean {
                 viewModel.getAllExercises()
+                if(name.isNullOrEmpty()){
+                    viewModel.searchExercise("%")
+                    binding.recyclerExercises.scrollToPosition(0)
+                }else{
+                    viewModel.searchExercise(name)
+                }
                 return false
             }
 

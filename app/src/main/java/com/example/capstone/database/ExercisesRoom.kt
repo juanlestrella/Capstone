@@ -1,10 +1,8 @@
 package com.example.capstone.database
 
 import android.content.Context
-import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.capstone.entities.ExercisesData
-import retrofit2.http.QueryName
 
 @Dao
 interface ExercisesDao {
@@ -18,7 +16,7 @@ interface ExercisesDao {
     /**
      * Finds a specific exercise from the exercises table
      */
-    @Query("SELECT * FROM exercises WHERE name = :queryName ")
+    @Query("SELECT * FROM exercises WHERE name LIKE (:queryName || '%')")
     fun findExerciseWithName(queryName: String): List<ExercisesData>
 
     /**
