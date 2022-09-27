@@ -35,9 +35,9 @@ class ExercisesFragment : Fragment() {
         if (savedInstanceState != null) {
             val state = savedInstanceState.getParcelableArrayList<Parcelable>(KEY_CHECKED)
             state?.forEach {
-                exercisesAdapter.checkBoxList.add(it as ExercisesData)
+                exercisesAdapter.addExerciseToCheckBoxList(it as ExercisesData)
             }
-            Log.i("ExercisesFragment", exercisesAdapter.checkBoxList.toString())
+            Log.i("ExercisesFragment", exercisesAdapter.returnCheckBoxList().toString())
         }
     }
 

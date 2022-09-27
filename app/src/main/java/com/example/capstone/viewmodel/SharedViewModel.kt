@@ -73,9 +73,9 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
     /**
      * Insert an exercise in finalExercisesList
      */
-    fun insertExercise(exercisesData: ExercisesData) {
-        finalExercisesList.add(exercisesData)
-    }
+//    fun insertExercise(exercisesData: ExercisesData) {
+//        finalExercisesList.add(exercisesData)
+//    }
 
     /**
      * Deletes template in TemplatesRoom
@@ -87,7 +87,7 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
     /**
      * Insert new template in TemplatesRoom
      */
-    fun insertNewTemplate(newTemplate: TemplatesData) {
+    fun insertTemplate(newTemplate: TemplatesData) {
         repository.insertNewTemplate(newTemplate)
     }
 

@@ -14,12 +14,6 @@ interface ExercisesDao {
     fun getExercises(): List<ExercisesData>
 
     /**
-     * Finds a specific exercise from the exercises table
-     */
-    @Query("SELECT * FROM exercises WHERE name LIKE (:queryName || '%')")
-    fun findExerciseWithName(queryName: String): List<ExercisesData>
-
-    /**
      * Gets all the body parts
      */
     @Query("SELECT DISTINCT bodyPart FROM exercises")
@@ -42,6 +36,12 @@ interface ExercisesDao {
      */
     @Query("SELECT * FROM exercises WHERE bodyPart LIKE :bodyPart and equipment LIKE :equipment and target LIKE :target")
     fun filterExercises(bodyPart: String, equipment: String, target: String) : List<ExercisesData>
+
+    /**
+     * Finds a specific exercise from the exercises table
+     */
+    @Query("SELECT * FROM exercises WHERE name LIKE (:queryName || '%')")
+    fun findExerciseWithName(queryName: String): List<ExercisesData>
 
     /**
      * Insert an exercise in the table

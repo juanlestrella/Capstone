@@ -127,7 +127,7 @@ class ProfileDetailsFragment : Fragment() {
                 } else {
                     // insert new template
                     val newTemplatesData: TemplatesData = TemplatesData(title, finalList)
-                    viewModel.insertNewTemplate(newTemplatesData)
+                    viewModel.insertTemplate(newTemplatesData)
 
                     // check if editing an old template or creating a new one
                     if (viewModel.isEditing) {
