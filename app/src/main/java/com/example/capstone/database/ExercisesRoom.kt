@@ -34,8 +34,8 @@ interface ExercisesDao {
     /**
      * Filter for exercises
      */
-    @Query("SELECT * FROM exercises WHERE bodyPart LIKE :bodyPart and equipment LIKE :equipment and target LIKE :target")
-    fun filterExercises(bodyPart: String, equipment: String, target: String) : List<ExercisesData>
+    @Query("SELECT * FROM exercises WHERE name LIKE (:queryName || '%') and bodyPart LIKE :bodyPart and equipment LIKE :equipment and target LIKE :target")
+    fun filterExercises(queryName: String, bodyPart: String, equipment: String, target: String) : List<ExercisesData>
 
     /**
      * Finds a specific exercise from the exercises table

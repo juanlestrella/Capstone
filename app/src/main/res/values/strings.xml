@@ -24,6 +24,8 @@
 
     <string name="plus_sign">Add template</string>
 
+    <!--Exercises Fragment-->
+    <string name="search_bar_hint">Search Workouts Name</string>
 
     <!--Fragment Profile Details-->
     <string name="template_name">Template Name: </string>
@@ -48,7 +50,7 @@
     <string name="cancel">Cancel</string>
     <string name="second">Enter Timer In Seconds</string>
 
-    <!--Notifcation-->
+    <!--Notification-->
     <string name="notification_description">Timer is done!</string>
 
 </resources>

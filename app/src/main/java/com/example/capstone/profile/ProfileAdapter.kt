@@ -26,6 +26,15 @@ class ProfileAdapter(private val sharedViewModel: SharedViewModel) :
         fun bind(data: TemplatesData) {
             binding.templates = data
             /**
+             * Create an inner RecyclerView using ProfileInnerAdapter
+             */
+            binding.recyclerListItemProfile.layoutManager =
+                LinearLayoutManager(binding.root.context, LinearLayoutManager.VERTICAL, false)
+            binding.recyclerListItemProfile.adapter = ProfileInnerAdapter()
+            (binding.recyclerListItemProfile.adapter as ProfileInnerAdapter)
+                .submitList(data.exercises)
+
+            /**
              * deletes the current template
              */
             binding.deleteButton.setOnClickListener {
@@ -50,17 +59,10 @@ class ProfileAdapter(private val sharedViewModel: SharedViewModel) :
                 // let the profiledetails that a template is being edit
                 sharedViewModel.isEditing = true
                 // save current data, if new edited template is saved then delete this
-                sharedViewModel.current_editing_template = data
+                sharedViewModel.currentEditingTemplate = data
                 // navigate to ProfileDetail Fragment
                 binding.root.findNavController().navigate(R.id.profileDetailFragment)
             }
-
-            // Create an inner RecyclerView using ProfileInnerAdapter
-            binding.recyclerListItemProfile.layoutManager =
-                LinearLayoutManager(binding.root.context, LinearLayoutManager.VERTICAL, false)
-            binding.recyclerListItemProfile.adapter = ProfileInnerAdapter()
-            (binding.recyclerListItemProfile.adapter as ProfileInnerAdapter)
-                .submitList(data.exercises)
         }
 
 

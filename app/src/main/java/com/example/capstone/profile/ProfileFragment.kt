@@ -58,7 +58,7 @@ class ProfileFragment : Fragment() {
         }
 
         if (viewModel.isEditTemplateSaved){
-            viewModel.deleteTemplate(viewModel.current_editing_template)
+            viewModel.deleteTemplate(viewModel.currentEditingTemplate)
             viewModel.isEditTemplateSaved = false
         }
 

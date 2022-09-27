@@ -22,7 +22,7 @@
             android:layout_margin="@dimen/size_8"
             android:iconifiedByDefault="false"
             android:padding="@dimen/size_8"
-            android:queryHint="Search Workouts"
+            android:queryHint="@string/search_bar_hint"
             app:layout_constraintBottom_toTopOf="@id/bodypart_spinner_id"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

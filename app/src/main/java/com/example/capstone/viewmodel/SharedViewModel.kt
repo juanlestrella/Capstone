@@ -36,31 +36,17 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
 
     var isEditing: Boolean = false
     var isEditTemplateSaved: Boolean = false
-    lateinit var current_editing_template: TemplatesData
+    lateinit var currentEditingTemplate: TemplatesData
 
-    val allBodyparts = repository.allBodyParts
+    val allBodyParts = repository.allBodyParts
     val allEquipments = repository.allEquipments
     val allTarget = repository.allTargets
 
     /**
-     * Get all the exercises from database
-     */
-    fun getAllExercises(){
-        repository.getAllExercisesList()
-    }
-
-    /**
-     * Search Bar: search an exercise with name
-     */
-    fun searchExercise(name: String){
-        repository.searchExercise(name)
-    }
-
-    /**
      * More general way of filtering all three types (Body Parts, Equipments, Targets)
      */
-    fun filterExercises(bodyPart: String, equipment: String, target: String){
-        repository.filterExercises(bodyPart, equipment, target)
+    fun filterExercises(name: String, bodyPart: String, equipment: String, target: String) {
+        repository.filterExercises(name, bodyPart, equipment, target)
     }
 
     /**
@@ -69,13 +55,6 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
     fun deleteExercise(exercisesData: ExercisesData) {
         finalExercisesList.remove(exercisesData)
     }
-
-    /**
-     * Insert an exercise in finalExercisesList
-     */
-//    fun insertExercise(exercisesData: ExercisesData) {
-//        finalExercisesList.add(exercisesData)
-//    }
 
     /**
      * Deletes template in TemplatesRoom
@@ -105,7 +84,7 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
      * RETURN: MutableList of ExercisesData
      */
     fun returnFinalExercisesList(): MutableList<ExercisesData> {
-        _checkedExercisesList.value?.forEach {
+        checkedExercisesList.value?.forEach {
             if (it !in finalExercisesList) {
                 finalExercisesList.add(it)
             }

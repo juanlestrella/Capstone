@@ -26,9 +26,14 @@ class Repository(
     /**
      * Gets all the bodypart names
      */
-    val allBodyParts: List<String> = listOf("Body Parts") + exercisesDatabase.exercisesDao.getAllBodyParts()
-    val allEquipments: List<String> = listOf("Equipments") + exercisesDatabase.exercisesDao.getAllEquipments()
-    val allTargets: List<String> = listOf("Targets") + exercisesDatabase.exercisesDao.getAllTargets()
+    val allBodyParts: List<String> =
+        listOf("Body Parts") + exercisesDatabase.exercisesDao.getAllBodyParts()
+
+    val allEquipments: List<String> =
+        listOf("Equipments") + exercisesDatabase.exercisesDao.getAllEquipments()
+
+    val allTargets: List<String> =
+        listOf("Targets") + exercisesDatabase.exercisesDao.getAllTargets()
 
     init {
         getAllExercisesList()
@@ -37,34 +42,22 @@ class Repository(
     /**
      * More general way of filtering all three types (Body Parts, Equipments, Targets)
      */
-    fun filterExercises(bodyPart: String, equipment: String, target: String) {
-        var bp = bodyPart
-        var eq = equipment
-        var t = target
-        if (bodyPart.isEmpty()){
-            bp = "%"
-        }
-        if (equipment.isEmpty()){
-            eq = "%"
-        }
-        if (target.isEmpty()){
-            t = "%"
-        }
-        _exercisesList.postValue(exercisesDatabase.exercisesDao.filterExercises(bp, eq, t))
+    fun filterExercises(name: String, bodyPart: String, equipment: String, target: String) {
+        var thisName = name.ifEmpty { "%" }
+        var thisBodyPart = bodyPart.ifEmpty { "%" }
+        var thisEquipment = equipment.ifEmpty { "%" }
+        var thisTarget = target.ifEmpty { "%" }
+        _exercisesList.postValue(
+            exercisesDatabase.exercisesDao
+                .filterExercises(thisName, thisBodyPart, thisEquipment, thisTarget)
+        )
     }
 
     /**
      * Fill the exercisesList with all the exercise from the database
      */
-    fun getAllExercisesList(){
+    fun getAllExercisesList() {
         _exercisesList.postValue(exercisesDatabase.exercisesDao.getExercises())
-    }
-
-    /**
-     * Search Bar: Query exercises table with exercise name
-     */
-    fun searchExercise(name: String) {
-        _exercisesList.postValue(exercisesDatabase.exercisesDao.findExerciseWithName(name))
     }
 
     /**
@@ -73,6 +66,7 @@ class Repository(
     fun deleteTemplate(template: TemplatesData) {
         templatesDatabase.templatesDao.deleteTemplate(template)
     }
+
     /**
      * Insert new TemplatesData to Template's Room
      */
