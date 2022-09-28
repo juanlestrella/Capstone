@@ -21,6 +21,7 @@
     <string name="bodypart_placeholder">Bodypart: %s</string>
     <string name="equipment_placeholder">Equipment: %s</string>
     <string name="target_placeholder">Target: %s</string>
+    <string name="add_exercise">Add Exercise</string>
 
     <string name="plus_sign">Add template</string>
 
