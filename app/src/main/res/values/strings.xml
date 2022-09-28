@@ -51,6 +51,9 @@
     <string name="start">Start</string>
     <string name="cancel">Cancel</string>
     <string name="second">Enter Timer In Seconds</string>
+    <string name="hh">HH:</string>
+    <string name="mm">MM:</string>
+    <string name="ss">SS:</string>
 
     <!--Notification-->
     <string name="notification_description">Timer is done!</string>

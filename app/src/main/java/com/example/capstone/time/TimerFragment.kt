@@ -6,6 +6,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Adapter
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
@@ -14,6 +16,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.capstone.R
 import com.example.capstone.databinding.FragmentTimerBinding
 import com.example.capstone.sendNotification
+import kotlin.math.min
 
 class TimerFragment : Fragment() {
 
@@ -52,10 +55,17 @@ class TimerFragment : Fragment() {
 
         binding.cancelId.isEnabled = false
 
+        val hoursArray: ArrayList<String> = (0..23).map { it.toString() } as ArrayList<String>
+        binding.hoursId.adapter = adapterHelper(hoursArray)
+        val minutesArray: ArrayList<String> = (0..59).map { it.toString() } as ArrayList<String>
+        binding.minutesId.adapter = adapterHelper(minutesArray)
+        val secondsArray: ArrayList<String> = (0..59).map { it.toString() } as ArrayList<String>
+        binding.secondsId.adapter = adapterHelper(secondsArray)
+
         binding.startId.setOnClickListener {
             try {
-                _seconds.value =
-                    Integer.parseInt(binding.secondId.text.toString()).toLong() * 1000 + 1000
+//                _seconds.value =
+//                    Integer.parseInt(binding.secondId.text.toString()).toLong() * 1000 + 1000
 
                 binding.startId.isEnabled = false
                 binding.cancelId.isEnabled = true
@@ -89,9 +99,19 @@ class TimerFragment : Fragment() {
         }
 
         binding.clearId.setOnClickListener {
-            binding.secondId.text.clear()
+//            binding.secondId.text.clear()
         }
 
         return binding.root
+    }
+
+    private fun adapterHelper(arr: ArrayList<String>): ArrayAdapter<String> {
+        return ArrayAdapter(
+            context!!,
+            android.R.layout.simple_spinner_item,
+            arr
+        ).also {
+            it.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        }
     }
 }

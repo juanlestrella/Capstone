@@ -10,13 +10,53 @@
 
     <!--START CONSTRAINT-->
     <ConstraintSet android:id="@+id/start">
-        <Constraint android:id="@+id/second_id"
-            android:layout_width="225dp"
-            android:layout_height="50dp"
-            motion:layout_constraintBottom_toBottomOf="parent"
-            motion:layout_constraintEnd_toEndOf="parent"
+<!--        <Constraint android:id="@+id/second_id"-->
+<!--            android:layout_width="225dp"-->
+<!--            android:layout_height="50dp"-->
+<!--            motion:layout_constraintBottom_toBottomOf="parent"-->
+<!--            motion:layout_constraintEnd_toEndOf="parent"-->
+<!--            motion:layout_constraintStart_toStartOf="parent"-->
+<!--            motion:layout_constraintTop_toTopOf="parent"-->
+<!--            />-->
+        <Constraint android:id="@+id/hh_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintEnd_toStartOf="@id/hours_id"
             motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintBottom_toBottomOf="parent"/>
+        <Constraint android:id="@+id/hours_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBaseline_toBaselineOf="@id/hh_id"
+            motion:layout_constraintStart_toEndOf="@id/hh_id"
+            motion:layout_constraintEnd_toStartOf="@id/mm_id"
+            />
+        <Constraint android:id="@+id/mm_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBaseline_toBaselineOf="@id/hh_id"
+            motion:layout_constraintStart_toEndOf="@id/hours_id"
+            motion:layout_constraintEnd_toStartOf="@id/minutes_id"/>
+        <Constraint android:id="@+id/minutes_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBaseline_toBaselineOf="@id/hh_id"
+            motion:layout_constraintStart_toEndOf="@id/mm_id"
+            motion:layout_constraintEnd_toStartOf="@id/ss_id"
+            />
+        <Constraint android:id="@+id/ss_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBaseline_toBaselineOf="@id/hh_id"
+            motion:layout_constraintStart_toEndOf="@id/minutes_id"
+            motion:layout_constraintEnd_toStartOf="@id/seconds_id"/>
+        <Constraint android:id="@+id/seconds_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBaseline_toBaselineOf="@id/hh_id"
+            motion:layout_constraintStart_toEndOf="@id/ss_id"
+            motion:layout_constraintEnd_toEndOf="parent"
             />
         <Constraint android:id="@+id/timer"
             android:layout_width="wrap_content"
@@ -33,6 +73,7 @@
             motion:layout_constraintEnd_toStartOf="@+id/cancel_id"
             motion:layout_constraintStart_toStartOf="parent"
             />
+
         <Constraint android:id="@+id/clear_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -62,13 +103,56 @@
 
     <!--END CONSTRAINT-->
     <ConstraintSet android:id="@+id/end">
-        <Constraint android:id="@+id/second_id"
-            android:layout_width="225dp"
-            android:layout_height="50dp"
-            motion:layout_constraintBottom_toBottomOf="parent"
-            motion:layout_constraintEnd_toEndOf="parent"
+<!--        <Constraint android:id="@+id/second_id"-->
+<!--            android:layout_width="225dp"-->
+<!--            android:layout_height="50dp"-->
+<!--            motion:layout_constraintBottom_toBottomOf="parent"-->
+<!--            motion:layout_constraintEnd_toEndOf="parent"-->
+<!--            motion:layout_constraintStart_toStartOf="parent"-->
+<!--            motion:layout_constraintTop_toTopOf="parent"-->
+<!--            />-->
+        <Constraint android:id="@+id/hh_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintEnd_toStartOf="@id/hours_id"
             motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            />
+        <Constraint android:id="@+id/hours_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBaseline_toBaselineOf="@id/hh_id"
+            motion:layout_constraintStart_toEndOf="@id/hh_id"
+            motion:layout_constraintEnd_toStartOf="@id/mm_id"
+            />
+        <Constraint android:id="@+id/mm_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBaseline_toBaselineOf="@id/hh_id"
+            motion:layout_constraintStart_toEndOf="@id/hours_id"
+            motion:layout_constraintEnd_toStartOf="@id/minutes_id"
+            />
+        <Constraint android:id="@+id/minutes_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBaseline_toBaselineOf="@id/hh_id"
+            motion:layout_constraintStart_toEndOf="@id/mm_id"
+            motion:layout_constraintEnd_toStartOf="@id/ss_id"
+            />
+        <Constraint android:id="@+id/ss_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBaseline_toBaselineOf="@id/hh_id"
+            motion:layout_constraintStart_toEndOf="@id/minutes_id"
+            motion:layout_constraintEnd_toStartOf="@id/seconds_id"
+            />
+        <Constraint android:id="@+id/seconds_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBaseline_toBaselineOf="@id/hh_id"
+            motion:layout_constraintStart_toEndOf="@id/ss_id"
+            motion:layout_constraintEnd_toEndOf="parent"
             />
         <Constraint android:id="@+id/timer"
             android:layout_width="wrap_content"
