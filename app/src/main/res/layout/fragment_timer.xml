@@ -2,6 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+    <!-- Don't need this Scene.xml, but will keep it for future work -->
 
     <data>
 
@@ -17,19 +18,6 @@
         app:layoutDescription="@xml/fragment_timer_scene"
         tools:context=".time.TimerFragment"
         tools:showPaths="true">
-
-<!--        <EditText-->
-<!--            android:id="@+id/second_id"-->
-<!--            android:layout_width="@dimen/size_260"-->
-<!--            android:layout_height="@dimen/size_50"-->
-<!--            android:autofillHints=""-->
-<!--            android:ems="10"-->
-<!--            android:hint="@string/second"-->
-<!--            android:inputType="number"-->
-<!--            android:minHeight="@dimen/size_50"-->
-<!--            android:textAlignment="center"-->
-<!--            android:textColorHint="#00838F"-->
-<!--            style="@style/DataText"/>-->
         <TextView
             android:id="@+id/hh_id"
             android:layout_width="wrap_content"
@@ -40,6 +28,7 @@
             android:id="@+id/hours_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:dropDownWidth="@dimen/size_38"
             />
         <TextView
             android:id="@+id/mm_id"
@@ -50,7 +39,8 @@
         <Spinner
             android:id="@+id/minutes_id"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:dropDownWidth="@dimen/size_38"/>
         <TextView
             android:id="@+id/ss_id"
             android:layout_width="wrap_content"
@@ -60,7 +50,8 @@
         <Spinner
             android:id="@+id/seconds_id"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:dropDownWidth="@dimen/size_38"/>
         <TextView
             android:id="@+id/timer"
             android:layout_width="wrap_content"
@@ -94,8 +85,11 @@
 
         <ProgressBar
             android:id="@+id/indicator_id"
+            style="@android:style/Widget.ProgressBar.Horizontal"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:minWidth="@dimen/size_260"
+            android:minHeight="@dimen/size_32"/>
 
     </androidx.constraintlayout.motion.widget.MotionLayout>
 </layout>

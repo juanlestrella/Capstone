@@ -10,27 +10,20 @@
 
     <!--START CONSTRAINT-->
     <ConstraintSet android:id="@+id/start">
-<!--        <Constraint android:id="@+id/second_id"-->
-<!--            android:layout_width="225dp"-->
-<!--            android:layout_height="50dp"-->
-<!--            motion:layout_constraintBottom_toBottomOf="parent"-->
-<!--            motion:layout_constraintEnd_toEndOf="parent"-->
-<!--            motion:layout_constraintStart_toStartOf="parent"-->
-<!--            motion:layout_constraintTop_toTopOf="parent"-->
-<!--            />-->
         <Constraint android:id="@+id/hh_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             motion:layout_constraintStart_toStartOf="parent"
             motion:layout_constraintEnd_toStartOf="@id/hours_id"
             motion:layout_constraintTop_toTopOf="parent"
-            motion:layout_constraintBottom_toBottomOf="parent"/>
+            motion:layout_constraintBottom_toBottomOf="parent" />
         <Constraint android:id="@+id/hours_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             motion:layout_constraintBaseline_toBaselineOf="@id/hh_id"
             motion:layout_constraintStart_toEndOf="@id/hh_id"
             motion:layout_constraintEnd_toStartOf="@id/mm_id"
+            android:dropDownWidth="@dimen/size_38"
             />
         <Constraint android:id="@+id/mm_id"
             android:layout_width="wrap_content"
@@ -44,6 +37,7 @@
             motion:layout_constraintBaseline_toBaselineOf="@id/hh_id"
             motion:layout_constraintStart_toEndOf="@id/mm_id"
             motion:layout_constraintEnd_toStartOf="@id/ss_id"
+            android:dropDownWidth="@dimen/size_38"
             />
         <Constraint android:id="@+id/ss_id"
             android:layout_width="wrap_content"
@@ -57,11 +51,12 @@
             motion:layout_constraintBaseline_toBaselineOf="@id/hh_id"
             motion:layout_constraintStart_toEndOf="@id/ss_id"
             motion:layout_constraintEnd_toEndOf="parent"
+            android:dropDownWidth="@dimen/size_38"
             />
         <Constraint android:id="@+id/timer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            motion:layout_constraintBottom_toTopOf="@+id/second_id"
+            motion:layout_constraintBottom_toTopOf="@+id/hh_id"
             motion:layout_constraintEnd_toEndOf="parent"
             motion:layout_constraintStart_toStartOf="parent"
             motion:layout_constraintTop_toTopOf="parent"
@@ -87,7 +82,7 @@
             motion:layout_constraintBottom_toBottomOf="parent"
             motion:layout_constraintEnd_toEndOf="parent"
             motion:layout_constraintStart_toStartOf="parent"
-            motion:layout_constraintTop_toBottomOf="@+id/second_id"
+            motion:layout_constraintTop_toBottomOf="@+id/hh_id"
             />
         <Constraint
             android:id="@+id/indicator_id"
@@ -97,20 +92,13 @@
             motion:layout_constraintEnd_toEndOf="parent"
             motion:layout_constraintTop_toTopOf="parent"
             motion:layout_constraintBottom_toTopOf="@id/timer"
-            android:alpha="0">
+
+            >
         </Constraint>
     </ConstraintSet>
 
     <!--END CONSTRAINT-->
     <ConstraintSet android:id="@+id/end">
-<!--        <Constraint android:id="@+id/second_id"-->
-<!--            android:layout_width="225dp"-->
-<!--            android:layout_height="50dp"-->
-<!--            motion:layout_constraintBottom_toBottomOf="parent"-->
-<!--            motion:layout_constraintEnd_toEndOf="parent"-->
-<!--            motion:layout_constraintStart_toStartOf="parent"-->
-<!--            motion:layout_constraintTop_toTopOf="parent"-->
-<!--            />-->
         <Constraint android:id="@+id/hh_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -125,6 +113,7 @@
             motion:layout_constraintBaseline_toBaselineOf="@id/hh_id"
             motion:layout_constraintStart_toEndOf="@id/hh_id"
             motion:layout_constraintEnd_toStartOf="@id/mm_id"
+            android:dropDownWidth="@dimen/size_38"
             />
         <Constraint android:id="@+id/mm_id"
             android:layout_width="wrap_content"
@@ -139,6 +128,7 @@
             motion:layout_constraintBaseline_toBaselineOf="@id/hh_id"
             motion:layout_constraintStart_toEndOf="@id/mm_id"
             motion:layout_constraintEnd_toStartOf="@id/ss_id"
+            android:dropDownWidth="@dimen/size_38"
             />
         <Constraint android:id="@+id/ss_id"
             android:layout_width="wrap_content"
@@ -153,11 +143,12 @@
             motion:layout_constraintBaseline_toBaselineOf="@id/hh_id"
             motion:layout_constraintStart_toEndOf="@id/ss_id"
             motion:layout_constraintEnd_toEndOf="parent"
+            android:dropDownWidth="@dimen/size_38"
             />
         <Constraint android:id="@+id/timer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            motion:layout_constraintBottom_toTopOf="@+id/second_id"
+            motion:layout_constraintBottom_toTopOf="@+id/hh_id"
             motion:layout_constraintEnd_toEndOf="parent"
             motion:layout_constraintStart_toStartOf="parent"
             motion:layout_constraintTop_toTopOf="parent"
@@ -182,7 +173,7 @@
             motion:layout_constraintBottom_toBottomOf="parent"
             motion:layout_constraintEnd_toEndOf="parent"
             motion:layout_constraintStart_toStartOf="parent"
-            motion:layout_constraintTop_toBottomOf="@+id/second_id"
+            motion:layout_constraintTop_toBottomOf="@+id/hh_id"
             />
         <Constraint
             android:id="@+id/indicator_id"
@@ -192,7 +183,7 @@
             motion:layout_constraintEnd_toEndOf="parent"
             motion:layout_constraintTop_toTopOf="parent"
             motion:layout_constraintBottom_toTopOf="@id/timer"
-            android:alpha="1.0">
+            >
         </Constraint>
     </ConstraintSet>
 </MotionScene>

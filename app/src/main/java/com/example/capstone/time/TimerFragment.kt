@@ -16,7 +16,10 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.capstone.R
 import com.example.capstone.databinding.FragmentTimerBinding
 import com.example.capstone.sendNotification
+import java.util.concurrent.TimeUnit
 import kotlin.math.min
+import kotlin.time.DurationUnit
+import kotlin.time.toDuration
 
 class TimerFragment : Fragment() {
 
@@ -24,13 +27,7 @@ class TimerFragment : Fragment() {
     val seconds: LiveData<Long>
         get() = _seconds
 
-//    private var _timeRemain = MutableLiveData<Long>()
-//    val timeRemain : LiveData<Long>
-//        get() = _timeRemain
-
     lateinit var timer: CountDownTimer
-
-//    private var isPause : Boolean = false
 
     private val viewModel: TimerViewModel by lazy {
         ViewModelProvider(this).get(TimerViewModel::class.java)
@@ -64,15 +61,26 @@ class TimerFragment : Fragment() {
 
         binding.startId.setOnClickListener {
             try {
-//                _seconds.value =
-//                    Integer.parseInt(binding.secondId.text.toString()).toLong() * 1000 + 1000
+                val seconds = TimeUnit.SECONDS.toMillis(Integer.parseInt(binding.secondsId.selectedItem.toString()).toLong())
+                val minutes = TimeUnit.MINUTES.toMillis(Integer.parseInt(binding.minutesId.selectedItem.toString()).toLong())
+                val hours = TimeUnit.HOURS.toMillis(Integer.parseInt(binding.hoursId.selectedItem.toString()).toLong())
+                _seconds.value = hours + minutes + seconds
+                binding.indicatorId.max = _seconds.value!!.toInt()
 
                 binding.startId.isEnabled = false
                 binding.cancelId.isEnabled = true
+                binding.clearId.isEnabled = false
+                binding.secondsId.isEnabled = false
+                binding.minutesId.isEnabled = false
+                binding.hoursId.isEnabled = false
 
                 timer = object : CountDownTimer(_seconds.value!!, 1000) {
                     override fun onTick(millisUntilFinished: Long) {
-                        binding.timer.text = (millisUntilFinished / 1000).toString()
+                        val duration = millisUntilFinished.toDuration(DurationUnit.MILLISECONDS)
+                        binding.timer.text = duration.toComponents { hours, minutes, seconds, _ ->
+                            String.format("%02d:%02d:%02d", hours, minutes, seconds)
+                        }
+                        binding.indicatorId.incrementProgressBy(1000)
                     }
 
                     override fun onFinish() {
@@ -80,14 +88,19 @@ class TimerFragment : Fragment() {
                         binding.motionLayout.progress = 0F
                         binding.startId.isEnabled = true
                         binding.cancelId.isEnabled = false
+                        binding.clearId.isEnabled = true
+                        binding.secondsId.isEnabled = true
+                        binding.minutesId.isEnabled = true
+                        binding.hoursId.isEnabled = true
+                        binding.indicatorId.progress = 0
                         sendNotification(requireContext())
                     }
                 }.start()
 
-                binding.motionLayout.setTransitionDuration(_seconds.value!!.toInt())
+                //binding.motionLayout.setTransitionDuration(_seconds.value!!.toInt())
                 binding.motionLayout.transitionToEnd()
             } catch (e: Exception) {
-                Toast.makeText(context, "Please Enter Timer in Seconds", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, "Please Enter Time", Toast.LENGTH_LONG).show()
             }
         }
 
@@ -95,11 +108,18 @@ class TimerFragment : Fragment() {
             timer.cancel()
             binding.startId.isEnabled = true
             binding.cancelId.isEnabled = false
+            binding.clearId.isEnabled = true
+            binding.secondsId.isEnabled = true
+            binding.minutesId.isEnabled = true
+            binding.hoursId.isEnabled = true
+            binding.indicatorId.progress = 0
             binding.motionLayout.progress = 0F
         }
 
         binding.clearId.setOnClickListener {
-//            binding.secondId.text.clear()
+            binding.secondsId.setSelection(0)
+            binding.minutesId.setSelection(0)
+            binding.hoursId.setSelection(0)
         }
 
         return binding.root

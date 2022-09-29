@@ -39,11 +39,12 @@ fun sendNotification(context: Context) {
         .getPendingIntent(getUniqueId(), PendingIntent.FLAG_UPDATE_CURRENT)
 
     val notification = NotificationCompat.Builder(context, NOTIFICATION_CHANNEL_ID)
-        .setSmallIcon(R.mipmap.ic_launcher)
+        .setSmallIcon(R.mipmap.ic_stat_android_app_icons)
         .setContentTitle(context.getString(R.string.timer))
         .setContentText(context.getString(R.string.notification_description))
         .setContentIntent(notificationPendingIntent)
         .setAutoCancel(true)
+        .setColor(R.color.white)
         .build()
 
     notificationManager.notify(getUniqueId(), notification)
