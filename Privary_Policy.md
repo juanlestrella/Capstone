@@ -9,4 +9,4 @@ If you have any questions or concern about the app's security, please send the e
 
 Sincerely,
 Juan Estrella
-[juan.lestrella03@gmail.com]
+juan.lestrella03@gmail.com
