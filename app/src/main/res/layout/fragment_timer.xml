@@ -8,7 +8,7 @@
 
         <variable
             name="viewModel"
-            type="com.example.capstone.time.TimerViewModel" />
+            type="com.estrella.capstone.time.TimerViewModel" />
     </data>
 
     <androidx.constraintlayout.motion.widget.MotionLayout

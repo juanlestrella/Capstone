@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.example.capstone.viewmodel.SharedViewModel" />
+            type="com.estrella.capstone.viewmodel.SharedViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

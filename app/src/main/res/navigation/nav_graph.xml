@@ -6,11 +6,11 @@
 
     <fragment
         android:id="@+id/authFragment"
-        android:name="com.example.capstone.authentication.AuthFragment"
+        android:name="com.estrella.capstone.authentication.AuthFragment"
         android:label="AuthFragment" />
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.capstone.profile.ProfileFragment"
+        android:name="com.estrella.capstone.profile.ProfileFragment"
         android:label="ProfileFragment">
         <action
             android:id="@+id/action_profileFragment_to_exercisesFragment"
@@ -24,7 +24,7 @@
     </fragment>
     <fragment
         android:id="@+id/exercisesFragment"
-        android:name="com.example.capstone.exercises.ExercisesFragment"
+        android:name="com.estrella.capstone.exercises.ExercisesFragment"
         android:label="ExercisesFragment">
         <action
             android:id="@+id/action_exercisesFragment_to_profileFragment"
@@ -35,7 +35,7 @@
     </fragment>
     <fragment
         android:id="@+id/timerFragment"
-        android:name="com.example.capstone.time.TimerFragment"
+        android:name="com.estrella.capstone.time.TimerFragment"
         android:label="TimerFragment">
         <action
             android:id="@+id/action_historyFragment_to_profileFragment"
@@ -43,7 +43,7 @@
     </fragment>
     <fragment
         android:id="@+id/profileDetailFragment"
-        android:name="com.example.capstone.profiledetails.ProfileDetailsFragment"
+        android:name="com.estrella.capstone.profiledetails.ProfileDetailsFragment"
         android:label="ProfileDetailFragment">
         <action
             android:id="@+id/action_profileDetailFragment_to_profileFragment"

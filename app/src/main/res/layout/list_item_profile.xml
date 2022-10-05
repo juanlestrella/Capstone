@@ -7,7 +7,7 @@
 
         <variable
             name="templates"
-            type="com.example.capstone.entities.TemplatesData" />
+            type="com.estrella.capstone.entities.TemplatesData" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

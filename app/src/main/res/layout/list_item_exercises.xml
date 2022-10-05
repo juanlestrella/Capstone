@@ -7,7 +7,7 @@
 
         <variable
             name="exercises"
-            type="com.example.capstone.entities.ExercisesData" />
+            type="com.estrella.capstone.entities.ExercisesData" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
