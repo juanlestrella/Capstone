@@ -56,7 +56,7 @@ class ProfileAdapter(private val sharedViewModel: SharedViewModel) :
                 sharedViewModel.clearFinalExercisesList()
                 // pass current TemplatesData to ProfileDetails
                 sharedViewModel.setCheckedExercisesList(data.exercises.toMutableList())
-                // let the profiledetails that a template is being edit
+                // let the ProfileDetails know that a template is being edit
                 sharedViewModel.isEditing = true
                 // save current data, if new edited template is saved then delete this
                 sharedViewModel.currentEditingTemplate = data

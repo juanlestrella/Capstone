@@ -47,11 +47,18 @@ class ProfileFragment : Fragment() {
         )
 
         binding.fab.setOnClickListener {
+            /** Removes previous list of exercises */
             viewModel.clearFinalExercisesList()
             /** Navigate to Profile Detail Fragment */
             navController.navigate(R.id.action_profileFragment_to_profileDetailFragment)
         }
-
+        /**
+         * If the template is saved in the ProfileFragment (by clicking the Done Button)
+         * then delete the previous edited fragment.
+         * Reset the isEditTemplateSaved to false so that the app knows that
+         * there is no template getting edit.
+         *
+         */
         if (viewModel.isEditTemplateSaved){
             viewModel.deleteTemplate(viewModel.currentEditingTemplate)
             viewModel.isEditTemplateSaved = false
