@@ -27,11 +27,6 @@ class ProfileActivity : AppCompatActivity(){
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_container)
 
-//        if (item.itemId == R.id.authFragment) {
-//            FirebaseAuth.getInstance().signOut()
-//            navController.navigate(R.id.authFragment)
-//            return true
-//        }
         return item.onNavDestinationSelected(navController) || super.onOptionsItemSelected(item)
     }
 }

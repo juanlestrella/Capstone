@@ -10,14 +10,12 @@
         <item name="colorSecondaryVariant">@color/lavender_blue</item>
         <item name="colorOnSecondary">@color/milk</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor" >?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="android:textColorPrimary">@color/black</item>
     </style>
 
     <style name="margin">
-        <item name="android:layout_marginLeft">4dp</item>
-        <item name="android:layout_marginRight">4dp</item>
-        <item name="android:layout_marginTop">4dp</item>
-        <item name="android:layout_marginBottom">4dp</item>
+        <item name="android:layout_margin">4dp</item>
     </style>
 </resources>

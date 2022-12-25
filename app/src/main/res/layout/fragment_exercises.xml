@@ -15,7 +15,7 @@
         android:layout_height="match_parent"
         tools:context=".exercises.ExercisesFragment">
 
-        <SearchView
+        <android.widget.SearchView
             android:id="@+id/search_bar_id"
             android:layout_width="match_parent"
             android:layout_height="@dimen/size_32"

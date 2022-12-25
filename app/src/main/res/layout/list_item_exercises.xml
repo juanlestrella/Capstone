@@ -17,7 +17,7 @@
 
         <TextView
             android:id="@+id/name_id"
-            style="@style/DataText"
+            style="@style/LightThemeText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:hint="@string/name"
@@ -29,7 +29,7 @@
 
         <TextView
             android:id="@+id/bodypart_id"
-            style="@style/DataText"
+            style="@style/LightThemeText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:hint="@string/bodypart"
@@ -41,7 +41,7 @@
 
         <TextView
             android:id="@+id/equipment_id"
-            style="@style/DataText"
+            style="@style/LightThemeText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:hint="@string/equipment"
@@ -52,7 +52,7 @@
 
         <TextView
             android:id="@+id/target_id"
-            style="@style/DataText"
+            style="@style/LightThemeText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:hint="@string/target"
@@ -75,6 +75,7 @@
 
         <CheckBox
             android:id="@+id/checkBox"
+            style="@style/LightThemeText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="@string/add_exercise"

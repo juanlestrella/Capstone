@@ -16,7 +16,7 @@
 
         <TextView
             android:id="@+id/exercises_inner_item_id"
-            style="@style/DataText"
+            style="@style/LightThemeText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/exercises"

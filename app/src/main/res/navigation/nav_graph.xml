@@ -3,11 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph"
     app:startDestination="@id/profileFragment">
-
-    <fragment
-        android:id="@+id/authFragment"
-        android:name="com.estrella.capstone.authentication.AuthFragment"
-        android:label="AuthFragment" />
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.estrella.capstone.profile.ProfileFragment"

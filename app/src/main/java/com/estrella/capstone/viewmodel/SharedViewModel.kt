@@ -26,6 +26,9 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
     val checkedExercisesList: LiveData<List<ExercisesData>>
         get() = _checkedExercisesList
 
+    /**
+     * Init databases, repository, list of exercises
+     */
     private val exercisesDatabase = getExercisesDataBase(application)
     private val templatesDatabase = getTemplatesDatabase(application)
     private val repository = Repository(exercisesDatabase, templatesDatabase)

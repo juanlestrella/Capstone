@@ -17,7 +17,7 @@
 
         <TextView
             android:id="@+id/template_name_textview_id"
-            style="@style/DataText"
+            style="@style/LightThemeText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/size_16"
@@ -27,7 +27,7 @@
 
         <EditText
             android:id="@+id/template_name_editview_id"
-            style="@style/DataText"
+            style="@style/LightThemeText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:autofillHints="text"
