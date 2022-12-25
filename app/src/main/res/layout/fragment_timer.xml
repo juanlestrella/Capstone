@@ -23,7 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/hh"
-            style="@style/LightThemeText"/>
+            style="@style/AppText"/>
         <Spinner
             android:id="@+id/hours_id"
             android:layout_width="wrap_content"
@@ -35,7 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/mm"
-            style="@style/LightThemeText"/>
+            style="@style/AppText"/>
         <Spinner
             android:id="@+id/minutes_id"
             android:layout_width="wrap_content"
@@ -46,7 +46,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/ss"
-            style="@style/LightThemeText"/>
+            style="@style/AppText"/>
         <Spinner
             android:id="@+id/seconds_id"
             android:layout_width="wrap_content"
@@ -57,7 +57,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/timer"
-            style="@style/LightThemeText"/>
+            style="@style/AppText"/>
 
         <Button
             android:id="@+id/start_id"

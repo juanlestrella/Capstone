@@ -17,7 +17,7 @@
 
         <TextView
             android:id="@+id/template_name_textview_id"
-            style="@style/LightThemeText"
+            style="@style/AppText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/size_16"
@@ -27,7 +27,7 @@
 
         <EditText
             android:id="@+id/template_name_editview_id"
-            style="@style/LightThemeText"
+            style="@style/AppText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:autofillHints="text"
@@ -43,6 +43,9 @@
             android:id="@+id/recycler_profile_details"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/size_16"
+            android:clipToPadding="false"
+            android:paddingBottom="@dimen/size_160"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toTopOf="@id/add_exercises_button_id"
             app:layout_constraintEnd_toEndOf="parent"

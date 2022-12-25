@@ -2,16 +2,12 @@
 <resources>
 
     <style name="ButtonText" parent="TextAppearance.AppCompat">
+        <item name="android:layout_marginLeft">@dimen/size_12</item>
         <item name="android:textSize">@dimen/size_12</item>
         <item name="fontFamily">sans-serif-condensed-medium</item>
     </style>
 
-    <style name="DarkThemeText" parent="Theme.AppCompat.DayNight.Dialog">
-        <item name="android:textSize">@dimen/size_16</item>
-        <item name="android:fontFamily">sans-serif</item>
-    </style>
-
-    <style name="LightThemeText" parent="TextAppearance.AppCompat">
+    <style name="AppText" parent="TextAppearance.AppCompat">
         <item name="android:textSize">@dimen/size_16</item>
         <item name="android:fontFamily">sans-serif</item>
     </style>
