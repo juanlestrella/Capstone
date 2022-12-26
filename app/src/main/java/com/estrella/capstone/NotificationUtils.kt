@@ -36,7 +36,7 @@ fun sendNotification(context: Context) {
         .addNextIntent(intent)
 
     val notificationPendingIntent = stackBuilder
-        .getPendingIntent(getUniqueId(), PendingIntent.FLAG_UPDATE_CURRENT)
+        .getPendingIntent(getUniqueId(), PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT)
 
     val notification = NotificationCompat.Builder(context, NOTIFICATION_CHANNEL_ID)
         .setSmallIcon(R.mipmap.ic_stat_android_app_icons)
